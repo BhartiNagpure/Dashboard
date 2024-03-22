@@ -15,40 +15,36 @@ export default function Client() {
     const handleBreadcrumbClick = (index) => {
         setBreadcrumb(prevBreadcrumb => prevBreadcrumb.slice(0, index + 1));
         if (index === breadcrumb.length - 1) {
-            setOpenForm(true);
+            setOpenForm(!openForm);
         }
     };
 
     return (
-        <div className='d-flex flex-wrap mt-5 py-4 px-3'>
-            <div className='col-12 mb-3'>
+        <div className='d-flex flex-wrap flex-column justify-content-end mt-5 py-4 px-3'>
+            {/* <div className='col-12 mb-3'>
                 {breadcrumb.map((item, index) => (
                     <span key={index}>
                         {index !== 0 && <span className="mx-1"> / </span>}
                         <span onClick={() => handleBreadcrumbClick(index)}>{item.label}</span>
                     </span>
                 ))}
+            </div> */}
+            <div className='d-flex '>
+               <div className='p-2'>
+               <label className='btn Btn' htmlFor='file-input' >
+                    <FontAwesomeIcon icon={faAdd} className='me-2' />
+                    Upload Excel
+               </label>
+               <input id='file-input' type='file' style={{display:'none'}}/>
+               </div>
+               <div className='p-2'>
+               <button className='btn Btn' type='' onClick={openFormFun}>
+                    <FontAwesomeIcon icon={faAdd} className='me-2' />
+                    Enter Manually
+                </button>
+               </div>
+
             </div>
-            {!openForm && (
-                <>
-                    <div className='col-lg-6 col-sm-12 col-md-6 p-2 master'>
-                        <div className='masterdiv'>
-                            <div className='text-center col-5'>
-                                <FontAwesomeIcon icon={faAdd} />
-                                <h3>Upload Excel (Template)</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='col-lg-6 col-sm-12 col-md-6 p-2 master'>
-                        <div className='masterdiv'>
-                            <div className='text-center col-5' onClick={openFormFun}>
-                                <FontAwesomeIcon icon={faAdd} />
-                                <h3>Enter Manually</h3>
-                            </div>
-                        </div>
-                    </div>
-                </>
-            )}
             {openForm && (
                 <>
                     <ClientForm />

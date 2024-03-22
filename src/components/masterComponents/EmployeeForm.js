@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "../../assests/css/contractTmas.css";
 import Button from "react-bootstrap/Button";
 import { Table, Form, Col, Row } from "react-bootstrap";
@@ -79,10 +79,11 @@ const EmployeeForm = () => {
         { srNo: 5 }
     ];
 
-    const SalaryForm = [
+    const IncomeForm = [
         {
             name: ' Income ID',
             placeholder: 'Income ID',
+            options: ["Basic", "HRA", "Travelling Allowness", "special", "Site DA", "Hardship"]
         },
         {
             name: 'Income Name',
@@ -98,6 +99,7 @@ const EmployeeForm = () => {
         {
             name: ' Deduction ID',
             placeholder: 'Deduction ID',
+            options: ["ESIC", "PF", "Other", "Advance"]
         },
         {
             name: 'Deduction Name',
@@ -115,12 +117,12 @@ const EmployeeForm = () => {
     const [salaryType, setSalaryType] = useState('');
 
     const handleSalaryChange = (event) => {
-      setSalaryType(event.target.value);
+        setSalaryType(event.target.value);
     };
     return (
         <>
             <section className="VendorM-manu">
-                <FontAwesomeIcon icon={faArrowLeft} onClick={() => navigate(-1)} />
+                {/* <FontAwesomeIcon icon={faArrowLeft} onClick={() => navigate(-1)} /> */}
                 <div className="container mt-2">
                     <div className="siteform">
                         <div className="p-4 mb-3">
@@ -182,25 +184,37 @@ const EmployeeForm = () => {
                                     </div>
                                 </div>
                                 <div>
-                                   <div  className="mt-3">
-                                   <h6>If Monthly,</h6>
-                                    <Row className="mt-3">
-                                        {SalaryForm.map((field, index) => (
-                                            <Form.Group as={Col} lg={4} md={6} sm={12} controlId={field.name.toLowerCase().replace(/\s/g, '')} className="mb-3" key={index}>
-                                                <Form.Control type="text" placeholder={field.placeholder} className="border-0" />
+                                    <div className="mt-3">
+                                        <h6>If Monthly,</h6>
+                                        <div className="d-flex row">{IncomeForm.map((field, index) => (
+                                            <Form.Group as={Col} lg={4} md={6} sm={12} className="mb-3" key={index}>
+                                                {field.options && field.options.length > 0 ? (
+                                                    <Form.Select defaultValue="Choose..." placeholder={field.placeholder}>
+                                                        {field.options.map((option, idx) => (
+                                                            <option key={idx}>{option}</option>
+                                                        ))}
+                                                    </Form.Select>
+                                                ) : (
+                                                    <Form.Control type="text" placeholder={field.placeholder} className="" />
+                                                )}
                                             </Form.Group>
-                                        ))}
-                                    </Row>
+                                        ))}</div>
                                     </div>
-                                    <div  className="mt-3">
-                                   <h6>No of deduction components</h6>
-                                    <Row className="mt-3">
-                                        {DeductionForm.map((field, index) => (
-                                            <Form.Group as={Col} lg={4} md={6} sm={12} controlId={field.name.toLowerCase().replace(/\s/g, '')} className="mb-3" key={index}>
-                                                <Form.Control type="text" placeholder={field.placeholder} className="border-0" />
+                                    <div className="mt-3">
+                                        <h6>No of deduction components</h6>
+                                        <div className="d-flex row ">{DeductionForm.map((field, index) => (
+                                            <Form.Group as={Col} lg={4} md={6} sm={12} className="mb-3" key={index}>
+                                                {field.options && field.options.length > 0 ? (
+                                                    <Form.Select defaultValue="Choose..." placeholder={field.placeholder}>
+                                                        {field.options.map((option, idx) => (
+                                                            <option key={idx}>{option}</option>
+                                                        ))}
+                                                    </Form.Select>
+                                                ) : (
+                                                    <Form.Control type="text" placeholder={field.placeholder} className="" />
+                                                )}
                                             </Form.Group>
-                                        ))}
-                                    </Row>
+                                        ))}</div>
                                     </div>
                                 </div>
                                 <div className="mb-3">

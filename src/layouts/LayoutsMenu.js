@@ -16,7 +16,7 @@ const NavData = () => {
         { label: 'Financial' , link:'/financial',icon:faCoins },
         { label: "Non-Financial" , link:'/non-financial', icon:faQuestion},
         { label: 'Vendor master',link:'vendor', icon:faSailboat },
-        { label: 'Client master', link:'/client', icon:faCoins },
+        // { label: 'Client master', link:'/client', icon:faCoins },
         { label: 'Item master', link:'/item', icon:faIdCard },
         { label: 'Employee/Layout master', link:'/employee', icon:faSailboat },
       ],

@@ -20,7 +20,7 @@ const VendorManual = () => {
   return (
     <>
       <section className="VendorM-manu">
-        <FontAwesomeIcon icon={faArrowLeft} onClick={() => navigate(-1)} />
+        {/* <FontAwesomeIcon icon={faArrowLeft} onClick={() => navigate(-1)} /> */}
         <div className="container mt-4">
           <div className="Vendor-manual-form">
             <div className="p-4 mb-3">
@@ -88,7 +88,19 @@ const VendorManual = () => {
                       disabled
                     />
                   </Form.Group>
-
+                  <Form.Group as={Col} lg={4} md={6} sm={12} controlId="gstn1" className="mb-3">
+                    <div className="input-group form-control p-0 ">
+                      <Form.Control type="text" placeholder="1. GSTN" className=" border-0" />
+                      <button className="btn btn-outline-success " type="button" id="button-addon2">Verify</button>
+                    </div>
+                  </Form.Group>
+                  <Form.Group as={Col} lg={4} md={6} sm={12} controlId="gstn1" className="mb-3">
+                    <div className="input-group form-control p-0">
+                      <Form.Control type="text" placeholder="2. GSTN" className=" border-0" />
+                      <button className="btn btn-outline-success " type="button" id="button-addon2">Verify</button>
+                    </div>
+                  </Form.Group>
+                  {/* 
                   <Form.Group
                     as={Col}
                     lg={4}
@@ -101,10 +113,13 @@ const VendorManual = () => {
                       type="text"
                       placeholder="1. GSTN"
                       className="border-0"
-                    />
-                  </Form.Group>
+                    >
+                      <Button variant="outline-secondary" className="verify-btn">Verify</Button>
+                    </Form.Control>
 
-                  <Form.Group
+                  </Form.Group> */}
+
+                  {/* <Form.Group
                     as={Col}
                     lg={4}
                     md={6}
@@ -117,7 +132,8 @@ const VendorManual = () => {
                       placeholder="2. GSTN"
                       className="border-0"
                     />
-                  </Form.Group>
+                    <Button variant="outline-secondary" className="verify-btn">Verify</Button>
+                  </Form.Group> */}
                 </Row>
 
                 <Row className="mb-3">
@@ -150,7 +166,20 @@ const VendorManual = () => {
                       className="border-0"
                     />
                   </Form.Group>
-
+                  <Form.Group
+                    as={Col}
+                    lg={4}
+                    md={6}
+                    sm={12}
+                    controlId="whatsappno"
+                    className="mb-3"
+                  >
+                    <Form.Control
+                      type="number"
+                      placeholder="Whatsapp Number"
+                      className="border-0"
+                    />
+                  </Form.Group>
                   <Form.Group
                     as={Col}
                     lg={4}
@@ -253,102 +282,6 @@ const VendorManual = () => {
                         className="border-0"
                       />
                     </Form.Group>
-
-                    <Form.Group
-                      as={Col}
-                      lg={4}
-                      md={6}
-                      sm={12}
-                      controlId="itemstartdate"
-                      className="mb-3"
-                    >
-                      <Form.Control
-                        type="text"
-                        placeholder="Start date"
-                        className="border-0"
-                      />
-                    </Form.Group>
-
-                    <Form.Group
-                      as={Col}
-                      lg={4}
-                      md={6}
-                      sm={12}
-                      controlId="itemenddate"
-                      className="mb-3"
-                    >
-                      <Form.Control
-                        type="text"
-                        placeholder="End Date"
-                        className="border-0"
-                      />
-                    </Form.Group>
-                  </Row>
-
-                  <Row className="mb-3">
-                    <Form.Group
-                      as={Col}
-                      lg={4}
-                      md={6}
-                      sm={12}
-                      controlId="itemquantity"
-                      className="mb-3"
-                    >
-                      <Form.Control
-                        type="number"
-                        placeholder="Item Quantity"
-                        className="border-0"
-                      />
-                    </Form.Group>
-
-                    <Form.Group
-                      as={Col}
-                      lg={4}
-                      md={6}
-                      sm={12}
-                      controlId="itemrate"
-                      className="mb-3"
-                    >
-                      <Form.Control
-                        type="number"
-                        placeholder="Item Rate"
-                        className="border-0"
-                      />
-                    </Form.Group>
-
-                    <Form.Group
-                      as={Col}
-                      lg={4}
-                      md={6}
-                      sm={12}
-                      controlId="itemamount"
-                      className="mb-3"
-                    >
-                      <Form.Control
-                        type="number"
-                        placeholder="Item Amount"
-                        className="border-0"
-                      />
-                    </Form.Group>
-                  </Row>
-
-                  <Row className="mb-3">
-                    <Form.Group
-                      as={Col}
-                      lg={4}
-                      md={6}
-                      sm={12}
-                      controlId="itemquantity"
-                      className="mb-3"
-                    >
-                      <textarea
-                        class="form-control"
-                        id="condition"
-                        rows="3"
-                        placeholder="Other Condition"
-                      ></textarea>
-                    </Form.Group>
-
                     <Form.Group
                       as={Col}
                       lg={4}

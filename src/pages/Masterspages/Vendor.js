@@ -8,30 +8,27 @@ export default function Vendor() {
 
 
     const openFormFun = (() => {
-        setOpenForm(true)
+        setOpenForm(!openForm)
 
     })
     return (
-        <div className='d-flex flex-wrap mt-5 py-5 px-3'>
-            {!openForm && (
-                <>
-                    <div className='col-6 p-2'>
-                        <div className='masterdiv  '>
-                            <div className='text-center col-5'>
-                                <FontAwesomeIcon icon={faAdd} />
-                                <h3>Upload Excel (Template)</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='col-6 p-2'>
-                        <div className='masterdiv'>
-                            <div className='text-center col-5' onClick={openFormFun}>
-                                <FontAwesomeIcon icon={faAdd} />
-                                <h3>Enter Manually</h3>
-                            </div>
-                        </div>
-                    </div></>
-            )}
+        <div className='d-flex flex-wrap mt-5 py-5 px-3 justify-content-end'>
+        <div className='d-flex '>
+           <div className='p-2'>
+           <label className='btn Btn' htmlFor='file-input' >
+                <FontAwesomeIcon icon={faAdd} className='me-2' />
+                Upload Excel
+           </label>
+           <input id='file-input' type='file' style={{display:'none'}}/>
+           </div>
+           <div className='p-2'>
+           <button className='btn Btn' type='' onClick={openFormFun}>
+                <FontAwesomeIcon icon={faAdd} className='me-2' />
+                Enter Manually
+            </button>
+           </div>
+
+        </div>
             {
                 openForm && (
                     <>

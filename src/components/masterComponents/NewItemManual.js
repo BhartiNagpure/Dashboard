@@ -12,7 +12,7 @@ const NewItemManual = () => {
   return (
     <>
       <section className="Newitem-Master">
-      <FontAwesomeIcon icon={faArrowLeft}  onClick={() => navigate(-1)} />
+      {/* <FontAwesomeIcon icon={faArrowLeft}  onClick={() => navigate(-1)} /> */}
         <div className="container mt-4">
           <div>
             <Form>
