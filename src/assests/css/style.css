@@ -1,0 +1,238 @@
+
+
+body{
+    --menu-color: #525b75;
+}.sidebarIcon {
+    width: 80px;
+}
+.link{
+  color: inherit;
+  text-decoration: none;
+}
+.notfound img{
+  height: 90vh;
+}
+.Btn{
+  background-color: #f9f777!important;
+}
+.Btn span{
+  font-weight: 500;
+}
+/* -----------------------------------------------------------------
+sidebar css
+----------------------------------------------------------------- */
+.sidebar-container {
+    height: 100vh;
+    position: fixed;
+    transition: 0.6s ease;
+    transition-property: left;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    overflow-x: hidden;
+    transition: all 0.3s;
+    border-right:1px solid #cbd0dd;
+    margin-top: 75px;
+   width: 250px;
+   max-width: 100%;
+}
+.menu:hover, .dropdown-item:hover{
+    background-color:#eff2f6!important;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.search{
+    max-width: 470px;
+    width: 100%;
+}
+.search input{
+    border: none;
+}
+.search svg, input::placeholder{
+    color: #6e7891!important;
+    font-weight: 400;
+}
+.sidebar-container::-webkit-scrollbar {
+    display: none;
+}
+.isSidebar {
+    left: 0px;
+    z-index: 2;
+    top: 80px;
+    height: 100%;
+}
+.header {
+    width: 100%;
+    border-bottom:1px solid #cbd0dd;
+}
+
+.dropdownBtn {
+    float: right;
+    font-size: x-small;
+}
+
+.active {
+    color: white;
+}
+
+/* Define a variable for the color we want to use */
+
+
+/* Set the initial color of the menu item and sidebar icon */
+.menu-item{
+    color: var(--menu-color);
+}
+.sidebar-icon {
+    color: var(--menu-color);
+}
+
+.menuTitle {
+    font-weight: 500;
+}
+
+.navbar-toggler {
+    display: none;
+}
+
+.dropdown-item {
+    list-style: none;
+    color:var(--menu-color)!important;
+
+}
+.navbar-toggler{
+    padding: 22px!important;
+}
+@media (max-width:1020px) {
+    .navbar-toggler {
+        display: block;
+        position: fixed;
+        z-index: 3;
+        font-size: 20px;
+    }
+
+    .sidebar-container {
+        left: -250px;
+        background-color: #f9f777!important;
+    }
+
+    .isSidebar {
+        left: 0px;
+        z-index: 2;
+        top: -9px;
+        height: 100%;
+    }
+}
+
+/* ------------------------------------------------------------
+header css
+------------------------------------------------------------ */
+
+.barIcon {
+    color: grey;
+    font-size: 20px;
+  }
+  .header-profile-user{
+    max-width: 50px!important;
+  }
+/*   
+  .searchbar {
+    background-color: #f1f2f3;
+    padding: 10px;
+    margin: 0px 20px;
+    border-radius: 5px;
+  } */
+  
+  /* .headerIcon {
+    color: grey;
+  } */
+  
+  /* .searchbar input {
+    background-color: #f1f2f3;
+  } */
+  
+  input:focus , .form-select:focus{
+    outline: none;
+  }
+    
+  .bagCount {
+    position: absolute;
+    transform: translateX(10px);
+    margin-top: -15px;
+    background-color: #36acec;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 500;
+  }
+  
+  .bellCount {
+    background-color: orangered;
+  }
+  
+  /* .header-profile-user {
+    width: 30px;
+  } */
+  .header-btn svg{
+    color: var(--menu-color);
+  }
+  @media (max-width:1020px) {
+    .header {
+      width: 100%;
+      max-width: 100%;
+    }
+    .barIcon{
+      display: none;
+    }
+  }
+
+  /* ------------------------------------------------------------
+  dashboard css
+  ------------------------------------------------------------ */
+  /* .dash{
+    width: calc(100% -250px);
+  } */
+.bg-img img{
+  height: 350px;
+  max-height: 100%;
+}
+
+/* ------------------------------------------------------------
+  masterpages css
+  ------------------------------------------------------------ */
+  .siteform input, .masterdiv{
+    background-color: #f7f7f7;
+  }
+  .masterdiv{
+    height: 300px;
+    max-height: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .masterdiv div{
+    cursor: pointer;
+  }
+  .masterdiv svg{
+    font-size: larger;
+  }
+  .form-control:focus{
+    box-shadow: none!important;
+  }
+.Newitem-Master, .VendorM-manu{
+  width: 100%!important;
+}
+  @media (max-width:745px) {
+    .master{
+      min-width: 100%;
+    }
+    .input-filed{
+      width: 100%;
+    }
+  }
+@media (max-width:500px) {
+  .siteform .input-field{
+    width: 100%!important;
+
+  }
+}

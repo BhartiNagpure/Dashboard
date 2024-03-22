@@ -1,0 +1,159 @@
+.auth-page-wrapper .auth-page-content {
+    /* padding-bottom: 30px;  */
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.auth-page-wrapper .footer {
+    left: 0;
+    background-color: transparent;
+    color: #333333; 
+}
+
+.auth-one-bg-position {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 380px;
+}
+
+@media (max-width: 575.98px) {
+    .auth-one-bg-position {
+        height: 280px;
+    }
+}
+.bg-100{
+    background-color: #f5f5fa;
+}
+.auth-one-bg {
+    /* background-image: url("../../images/auth-one-bg.jpg"); */
+    background-position: center;
+    background-size: cover;
+}
+
+.auth-one-bg .bg-overlay {
+    background: linear-gradient(to right, #0069d9, #007bff); /* Primary color */
+    opacity: 0.9;
+}
+
+.shape {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.shape > svg {
+    width: 100%;
+    height: auto;
+    fill: #f0f0f0; /* Background cover color */
+}
+
+.auth-pass-inputgroup input[type="text"] + .btn .ri-eye-fill:before {
+    content: "\ecb6";
+}
+
+.particles-js-canvas-el {
+    position: relative;
+}
+
+.signin-other-title {
+    position: relative;
+}
+
+.signin-other-title:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    right: 0;
+    border-top: 1px dashed #cccccc; /* Border color */
+    top: 10px;
+}
+
+.signin-other-title .title {
+    display: inline-block;
+    position: relative;
+    z-index: 9;
+    background-color: #f8f9fa; /* Card background color */
+    padding: 2px 16px;
+}
+
+.auth-bg-cover {
+    backface-visibility: visible;
+    background-image: url("../images/signupbgimg.png");
+}
+
+.auth-bg-cover > .bg-overlay {
+    
+    background-position: center;
+    background-size: cover;
+    opacity: 1;
+    background-color: transparent;
+}
+.logo-signup{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+.verify-success{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.scroll-info-form{
+    max-height: 400px; 
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+}
+
+.scroll-info-form ::-webkit-scrollbar {
+   display: none;
+}
+
+
+.otp-btn button{
+    background-color: white !important;
+    color: black !important;
+
+}
+
+.auth-bg-cover .footer {
+    color: rgba(255, 255, 255, 0.5); /* White color with opacity */
+}
+
+#password-contain {
+    display: none;
+}
+
+#password-contain p {
+    padding-left: 13px;
+}
+
+#password-contain p.valid {
+    color: #28a745; /* Success color */
+}
+
+#password-contain p.valid::before {
+    position: relative;
+    left: -8px;
+    content: "✔";
+}
+
+#password-contain p.invalid {
+    color: #dc3545; /* Danger color */
+}
+
+#password-contain p.invalid::before {
+    position: relative;
+    left: -8px;
+    content: "✖";
+}
