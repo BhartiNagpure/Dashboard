@@ -12,6 +12,7 @@ import Item from "./pages/Masterspages/Item";
 import Employee from "./pages/Masterspages/Employee";
 import NotFoundPage from "./pages/NotFoundPage";
 import ContractTenderMaster from "./pages/Masterspages/ContractTenderMaster";
+import Register from "./pages/authentication/Register";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
                 <Route path="/item" element={<Item />} />
                 <Route path="/employee" element={<Employee />} />
                 <Route path="/contract" element={<ContractTenderMaster />} />
+                <Route path='/login' element={<Register/>}/>
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </div>

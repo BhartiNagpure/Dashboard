@@ -149,7 +149,7 @@ header css
     background-color: #f1f2f3;
   } */
   
-  input:focus {
+  input:focus , .form-select:focus{
     outline: none;
   }
     
