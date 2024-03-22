@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../assests/css/contractTmas.css";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
@@ -9,11 +9,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const VendorManual = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  const [showSecondForm, setShowSecondForm] = useState(false);
+
+  const handleRadioChange = (e) => {
+    setShowSecondForm(e.target.value === "yes");
+  };
+
   return (
     <>
       <section className="VendorM-manu">
-          <FontAwesomeIcon icon={faArrowLeft}  onClick={() => navigate(-1)} />
+        <FontAwesomeIcon icon={faArrowLeft} onClick={() => navigate(-1)} />
         <div className="container mt-4">
           <div className="Vendor-manual-form">
             <div className="p-4 mb-3">
@@ -27,7 +34,11 @@ const VendorManual = () => {
                     controlId="vendorid"
                     className="mb-3"
                   >
-                    <Form.Control type="text" placeholder="Vendor ID" className="border-0" />
+                    <Form.Control
+                      type="text"
+                      placeholder="Vendor ID"
+                      className="border-0"
+                    />
                   </Form.Group>
 
                   <Form.Group
@@ -38,7 +49,11 @@ const VendorManual = () => {
                     controlId="vendorname"
                     className="mb-3"
                   >
-                    <Form.Control type="text" placeholder="Vendor Name" className="border-0" />
+                    <Form.Control
+                      type="text"
+                      placeholder="Vendor Name"
+                      className="border-0"
+                    />
                   </Form.Group>
 
                   <Form.Group
@@ -49,7 +64,11 @@ const VendorManual = () => {
                     controlId="panno"
                     className="mb-3"
                   >
-                    <Form.Control type="text" placeholder="PAN Number" className="border-0" />
+                    <Form.Control
+                      type="text"
+                      placeholder="PAN Number"
+                      className="border-0"
+                    />
                   </Form.Group>
                 </Row>
 
@@ -78,7 +97,11 @@ const VendorManual = () => {
                     controlId="gstn1"
                     className="mb-3"
                   >
-                    <Form.Control type="text" placeholder="1. GSTN" className="border-0" />
+                    <Form.Control
+                      type="text"
+                      placeholder="1. GSTN"
+                      className="border-0"
+                    />
                   </Form.Group>
 
                   <Form.Group
@@ -89,7 +112,11 @@ const VendorManual = () => {
                     controlId="gstn2"
                     className="mb-3"
                   >
-                    <Form.Control type="text" placeholder="2. GSTN" className="border-0" />
+                    <Form.Control
+                      type="text"
+                      placeholder="2. GSTN"
+                      className="border-0"
+                    />
                   </Form.Group>
                 </Row>
 
@@ -102,7 +129,11 @@ const VendorManual = () => {
                     controlId="contactperson"
                     className="mb-3"
                   >
-                    <Form.Control type="text" placeholder="Contact Person" className="border-0" />
+                    <Form.Control
+                      type="text"
+                      placeholder="Contact Person"
+                      className="border-0"
+                    />
                   </Form.Group>
 
                   <Form.Group
@@ -113,7 +144,11 @@ const VendorManual = () => {
                     controlId="contactno"
                     className="mb-3"
                   >
-                    <Form.Control type="number" placeholder="Contact Number" className="border-0" />
+                    <Form.Control
+                      type="number"
+                      placeholder="Contact Number"
+                      className="border-0"
+                    />
                   </Form.Group>
 
                   <Form.Group
@@ -124,7 +159,11 @@ const VendorManual = () => {
                     controlId="contacteamil"
                     className="mb-3"
                   >
-                    <Form.Control type="email" placeholder="Email ID" className="border-0" />
+                    <Form.Control
+                      type="email"
+                      placeholder="Email ID"
+                      className="border-0"
+                    />
                   </Form.Group>
                 </Row>
 
@@ -142,7 +181,6 @@ const VendorManual = () => {
                       id="contacaddress"
                       rows="3"
                       placeholder="Address"
-
                     ></textarea>
                   </Form.Group>
 
@@ -179,6 +217,8 @@ const VendorManual = () => {
                             name="group1"
                             type={type}
                             id={`inline-${type}-1`}
+                            value="yes"
+                            onChange={handleRadioChange}
                           />
                           <Form.Check
                             inline
@@ -186,6 +226,8 @@ const VendorManual = () => {
                             name="group1"
                             type={type}
                             id={`inline-${type}-2`}
+                            value="no"
+                            onChange={handleRadioChange}
                           />
                         </div>
                       ))}
@@ -194,121 +236,155 @@ const VendorManual = () => {
                 </Row>
               </Form>
 
-              <Form>
-                <Row className="mb-3">
-                  <Form.Group
-                    as={Col}
-                    lg={4}
-                    md={6}
-                    sm={12}
-                    controlId="itempurchase"
-                    className="mb-3"
-                  >
-                    <Form.Control type="text" placeholder="Item Purchase" className="border-0" />
-                  </Form.Group>
+              {showSecondForm && (
+                <Form>
+                  <Row className="mb-3">
+                    <Form.Group
+                      as={Col}
+                      lg={4}
+                      md={6}
+                      sm={12}
+                      controlId="itempurchase"
+                      className="mb-3"
+                    >
+                      <Form.Control
+                        type="text"
+                        placeholder="Item Purchase"
+                        className="border-0"
+                      />
+                    </Form.Group>
 
-                  <Form.Group
-                    as={Col}
-                    lg={4}
-                    md={6}
-                    sm={12}
-                    controlId="itemstartdate"
-                    className="mb-3"
-                  >
-                    <Form.Control type="text" placeholder="Start date" className="border-0" />
-                  </Form.Group>
+                    <Form.Group
+                      as={Col}
+                      lg={4}
+                      md={6}
+                      sm={12}
+                      controlId="itemstartdate"
+                      className="mb-3"
+                    >
+                      <Form.Control
+                        type="text"
+                        placeholder="Start date"
+                        className="border-0"
+                      />
+                    </Form.Group>
 
-                  <Form.Group
-                    as={Col}
-                    lg={4}
-                    md={6}
-                    sm={12}
-                    controlId="itemenddate"
-                    className="mb-3"
-                  >
-                    <Form.Control type="text" placeholder="End Date" className="border-0" />
-                  </Form.Group>
-                </Row>
+                    <Form.Group
+                      as={Col}
+                      lg={4}
+                      md={6}
+                      sm={12}
+                      controlId="itemenddate"
+                      className="mb-3"
+                    >
+                      <Form.Control
+                        type="text"
+                        placeholder="End Date"
+                        className="border-0"
+                      />
+                    </Form.Group>
+                  </Row>
 
-                <Row className="mb-3">
-                  <Form.Group
-                    as={Col}
-                    lg={4}
-                    md={6}
-                    sm={12}
-                    controlId="itemquantity"
-                    className="mb-3"
-                  >
-                    <Form.Control type="number" placeholder="Item Quantity" className="border-0" />
-                  </Form.Group>
+                  <Row className="mb-3">
+                    <Form.Group
+                      as={Col}
+                      lg={4}
+                      md={6}
+                      sm={12}
+                      controlId="itemquantity"
+                      className="mb-3"
+                    >
+                      <Form.Control
+                        type="number"
+                        placeholder="Item Quantity"
+                        className="border-0"
+                      />
+                    </Form.Group>
 
-                  <Form.Group
-                    as={Col}
-                    lg={4}
-                    md={6}
-                    sm={12}
-                    controlId="itemrate"
-                    className="mb-3"
-                  >
-                    <Form.Control type="number" placeholder="Item Rate" className="border-0" />
-                  </Form.Group>
+                    <Form.Group
+                      as={Col}
+                      lg={4}
+                      md={6}
+                      sm={12}
+                      controlId="itemrate"
+                      className="mb-3"
+                    >
+                      <Form.Control
+                        type="number"
+                        placeholder="Item Rate"
+                        className="border-0"
+                      />
+                    </Form.Group>
 
-                  <Form.Group
-                    as={Col}
-                    lg={4}
-                    md={6}
-                    sm={12}
-                    controlId="itemamount"
-                    className="mb-3"
-                  >
-                    <Form.Control type="number" placeholder="Item Amount" className="border-0" />
-                  </Form.Group>
-                </Row>
+                    <Form.Group
+                      as={Col}
+                      lg={4}
+                      md={6}
+                      sm={12}
+                      controlId="itemamount"
+                      className="mb-3"
+                    >
+                      <Form.Control
+                        type="number"
+                        placeholder="Item Amount"
+                        className="border-0"
+                      />
+                    </Form.Group>
+                  </Row>
 
-                <Row className="mb-3">
-                  <Form.Group
-                    as={Col}
-                    lg={4}
-                    md={6}
-                    sm={12}
-                    controlId="itemquantity"
-                    className="mb-3"
-                  >
-                    <textarea
-                      class="form-control"
-                      id="condition"
-                      rows="3"
-                      placeholder="Other Condition"
-                    ></textarea>
-                  </Form.Group>
+                  <Row className="mb-3">
+                    <Form.Group
+                      as={Col}
+                      lg={4}
+                      md={6}
+                      sm={12}
+                      controlId="itemquantity"
+                      className="mb-3"
+                    >
+                      <textarea
+                        class="form-control"
+                        id="condition"
+                        rows="3"
+                        placeholder="Other Condition"
+                      ></textarea>
+                    </Form.Group>
 
-                  <Form.Group
-                    as={Col}
-                    lg={4}
-                    md={6}
-                    sm={12}
-                    controlId="bankno"
-                    className="mb-3"
-                  >
-                    <Form.Control type="number" placeholder="Bank Account No." className="border-0" />
-                  </Form.Group>
+                    <Form.Group
+                      as={Col}
+                      lg={4}
+                      md={6}
+                      sm={12}
+                      controlId="bankno"
+                      className="mb-3"
+                    >
+                      <Form.Control
+                        type="number"
+                        placeholder="Bank Account No."
+                        className="border-0"
+                      />
+                    </Form.Group>
 
-                  <Form.Group
-                    as={Col}
-                    lg={4}
-                    md={6}
-                    sm={12}
-                    controlId="ifscno"
-                    className="mb-3"
-                  >
-                    <Form.Control type="text" placeholder="IFSC Code" className="border-0" />
-                  </Form.Group>
-                </Row>
-              </Form>
+                    <Form.Group
+                      as={Col}
+                      lg={4}
+                      md={6}
+                      sm={12}
+                      controlId="ifscno"
+                      className="mb-3"
+                    >
+                      <Form.Control
+                        type="text"
+                        placeholder="IFSC Code"
+                        className="border-0"
+                      />
+                    </Form.Group>
+                  </Row>
+                </Form>
+              )}
             </div>
           </div>
           <div className="mb-3">
-            <button className='btn Btn m-2 '>
+            <button className="btn Btn m-2 ">
               <span>Submit</span>
             </button>
           </div>
