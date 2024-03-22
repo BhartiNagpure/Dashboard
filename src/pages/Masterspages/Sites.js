@@ -48,36 +48,12 @@ export default function Sites() {
     },
   ]
   const [fields, setFields] = useState(fieldsData);
-  const [addField, setAddField] = useState([]);
+  const [addField, setAddField] = useState([...addFields]);
 
-  useEffect(() => {
-    const storedFields = localStorage.getItem('addField');
-    if (storedFields) {
-      setAddField(JSON.parse(storedFields));
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('addField', JSON.stringify(addField));
-  }, [addField]);
-
-  useEffect(() => {
-    localStorage.setItem('fields', JSON.stringify(fields));
-  }, [fields]);
+ 
   
   const addWorkField = () => {
-    setAddField(prevState => [...prevState, {
-      name: 'Work Order No',
-      placeholder: 'Work Order No',
-    },
-    {
-      name: 'Description Or work Done',
-      placeholder: 'Description Or work Done',
-    },
-    {
-      name: 'Amount',
-      placeholder: 'Amount',
-    }]);
+    setAddField(prevState => [...prevState, ...addFields]);
   };
 
   return (
@@ -95,15 +71,15 @@ export default function Sites() {
         <div className='mt-2'>
           <h3 className='mx-2'>Add your work</h3>
           <div className='d-flex flex-wrap'>
-          {addFields.map((field, index) => (
+          {addField.map((field, index) => (
             <div className="col-lg-4 col-md-6 col-sm-12 input-field" key={index}>
               <div className="px-2 py-3">
-                <input type="text" className="form-control" placeholder={field.placeholder} />
+                <input type="text" value="" className="form-control" placeholder={field.placeholder} />
               </div>
             </div>
           ))}
         </div>
-          <button className='btn Btn m-2 ' onClick={addWorkField}>
+          <button className='btn Btn m-2 ' type='button' onClick={addWorkField}>
             <FontAwesomeIcon icon={faAdd} className='mx-1' />
             <span>
               Create work order

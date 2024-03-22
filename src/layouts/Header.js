@@ -25,19 +25,19 @@ export default function Header({ sidebarIcon }) {
                    </Link>
                 
             </div>
-            <div className="position-relative search rounded-pill form-control form-control-sm d-flex align-items-center ">
+            <div className="position-relative search rounded-pill form-control form-control-sm d-flex align-items-center p-1">
                 <FontAwesomeIcon icon={faSearch} className="headerIcon px-2 col-1" />
                 <input
                     placeholder="Search..."
                     type="search"
-                    className="search-input col-10"
+                    className="search-input col-10 "
                     value={searchTerm}
                     onChange={handleInputChange}
                 />
             </div>
             <div className='headericonDiv d-flex align-items-center justify-content-center '>
-            <Form.Group as={Col} lg={4} md={6} sm={12} controlId="itemtype" className="p-1">
-                  <Form.Select defaultValue="Choose...">
+            <Form.Group as={Col} lg={6} controlId="itemtype " >
+                  <Form.Select defaultValue="Choose..." className=' form-control-sm rounded-pill py-1 '>
                     <option>Sites</option>
                     <option>Sites 1</option>
                     <option>Site 2</option>
