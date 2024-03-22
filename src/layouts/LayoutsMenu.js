@@ -25,9 +25,9 @@ const NavData = () => {
       label: "Transactions",
       // icon: faDollar,
       subItems: [
-        { label: "Sales",icon:faCoins },
-        { label: "Purchase", icon:faCoins },
-        { label: "Wages", icon:faCoins },
+        { label: "Sales",icon:faCoins, link:'/sales' },
+        { label: "Purchase", icon:faCoins, link:'/purchase' },
+        { label: "Wages", icon:faCoins, link:'/wages' },
         { label: "EXP", icon:faCoins },
         { label: "Assests", icon:faCoins },
         { label: 'OTHNIC', icon:faCoins }
