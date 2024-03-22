@@ -1,0 +1,81 @@
+
+body{
+    --menu-color: #525b75;
+}.sidebarIcon {
+    width: 80px;
+}
+
+.sidebar-container {
+    height: 100vh;
+    position: fixed;
+    transition: 0.6s ease;
+    transition-property: left;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    overflow-x: hidden;
+    transition: all 0.3s;
+}
+
+/* .sidebar-container::-webkit-scrollbar {
+    display: none;
+} */
+
+.header {
+    width: 85%;
+}
+
+.dropdownBtn {
+    float: right;
+    font-size: x-small;
+}
+
+.active {
+    color: white;
+}
+
+/* Define a variable for the color we want to use */
+
+
+/* Set the initial color of the menu item and sidebar icon */
+.menu-item{
+    color: var(--menu-color);
+}
+.sidebar-icon {
+    color: var(--menu-color);
+}
+
+.menuTitle {
+    font-weight: 500;
+}
+
+.navbar-toggler {
+    display: none;
+}
+
+.dropdown-item {
+    list-style: none;
+    color:var(--menu-color)!important;
+
+}
+
+@media (max-width:1024px) {
+    .navbar-toggler {
+        display: block;
+        position: fixed;
+        z-index: 3;
+        margin-top: 16px;
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    .sidebar-container {
+        left: -250px;
+    }
+
+    .isSidebar {
+        left: 0px;
+        z-index: 2;
+        top: 80px;
+        height: 100%;
+    }
+}
