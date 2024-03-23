@@ -1,51 +1,34 @@
-import { faAdd } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, {useState} from 'react'
+import React, { useState } from "react";
+import EnterManually from '../../components/Transactions/Purchase/EnterManually';
+import UploadExcel from '../../components/Transactions/Purchase/UploadExcel';
+import UploadInvoice from '../../components/Transactions/Purchase/UploadInvoice';
 
 export default function Purchase() {
-    const [openForm, setOpenForm] = useState(false);
+  const [activeForm, setActiveForm] = useState(null);
 
+  const openForm = (form) => {
+    setActiveForm(form);
+  };
 
-    const openFormFun = (() => {
-        setOpenForm(true)
+  return (
+    <>
+    <div className="d-flex justify-content-end mt-5 py-5 px-3">
+      <button onClick={() => openForm('excel')} className="btn bg-warning text-black mx-2">
+        <small>+ Upload Excel <span>(Template)</span></small>
+      </button>
+      <button onClick={() => openForm('invoice')} className="btn bg-warning text-black mx-2">
+        <small>+ Upload Invoice</small>
+      </button>
+      <button onClick={() => openForm('manual')} className="btn bg-warning text-black">
+        <small>+ Enter Manually</small>
+      </button>
+    </div>
 
-    })
-    return (
-        <div className='d-flex flex-wrap mt-5 py-5 px-3'>
-            {!openForm && (
-                <>
-                    <div className='col-6 p-2'>
-                        <div className='masterdiv  '>
-                            <div className='text-center col-5'>
-                                <FontAwesomeIcon icon={faAdd} />
-                                <h3>Upload Excel <span>(Template)</span></h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='col-6 p-2'>
-                        <div className='masterdiv'>
-                            <div className='text-center col-5 ' onClick={openFormFun}>
-                                <FontAwesomeIcon icon={faAdd} />
-                                <h3>Upload Invoice</h3>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div className='col-6 p-2'>
-                        <div className='masterdiv'>
-                            <div className='text-center col-5 ' onClick={openFormFun}>
-                                <FontAwesomeIcon icon={faAdd} />
-                                <h3>Enter Maually</h3>
-                            </div>
-                        </div>
-                    </div></>
-            )}
-
-            {openForm && (
-              <>
-              {/* <NewItemManual/> */}
-              </>
-            )}
-        </div>
-    )
+    <div>
+      {activeForm === 'excel' && <UploadExcel />}
+      {activeForm === 'invoice' && <UploadInvoice />}
+      {activeForm === 'manual' && <EnterManually />}
+    </div>
+    </>
+  );
 }
