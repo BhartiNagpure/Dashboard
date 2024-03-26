@@ -13,9 +13,9 @@ import success from "../../assests/images/success-svgrepo-com.svg";
 function CustomAlert({ message }) {
   return (
     <div className="custom-alert">
-      <div className="message border rounded w-25 bg-secondary text-white alert-div">
+      <div className="message border rounded  bg-secondary text-white alert-div">
         <img src={success} alt="Successfully" />
-        {message}
+        <small>{message}</small>
       </div>
     </div>
   );
@@ -49,7 +49,7 @@ export default function Wages() {
     if (showAlert) {
       timer = setTimeout(() => {
         setShowAlert(false);
-      }, 2000);
+      }, 3000);
     }
     return () => clearTimeout(timer);
   }, [showAlert]);

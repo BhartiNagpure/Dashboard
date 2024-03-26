@@ -248,3 +248,25 @@ Wages Page Alert CSS
   width: 20px;
   margin: 5px;
 }
+
+.custom-alert div{
+  width: 20rem;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .custom-alert {
+    width: 100% !important; 
+    padding: 10px; 
+    
+  }
+
+  .message {
+    width: 100% !important; 
+    text-align: center;
+    display: flexbox;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+  }
+}
