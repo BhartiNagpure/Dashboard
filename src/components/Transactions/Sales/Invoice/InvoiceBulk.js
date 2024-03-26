@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 
+import DatePicker, { DateObject } from "react-multi-date-picker";
+import DatePanel from "react-multi-date-picker/plugins/date_panel";
+
+const format = "MM/DD/YYYY";
+
 export default function InvoiceBulk() {
+  const [dates, setDates] = useState([ ]);
+
+
   return (
     <>
       <div>
@@ -31,9 +39,27 @@ export default function InvoiceBulk() {
               lg={4}
               md={4}
               sm={12}
-              controlId="formGridZip"
+              controlId="formGridDates"
             >
-              <Form.Control type="date" />
+              <Form.Label>Select Dates</Form.Label>
+
+              <div className="text-center">
+                <DatePicker
+                  value={dates}
+                  onChange={setDates}
+                  multiple
+                  sort
+                  format={format}
+                  calendarPosition="bottom-center"
+                  plugins={[<DatePanel />]}
+                  placeholder="Select Dates"
+                />
+              </div>
+              <ul>
+                {dates.map((date, index) => (
+                  <li key={index}>{date.format()}</li>
+                ))}
+              </ul>
             </Form.Group>
           </Row>
 

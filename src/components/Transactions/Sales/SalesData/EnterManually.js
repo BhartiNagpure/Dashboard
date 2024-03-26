@@ -1,3 +1,4 @@
+import { useState } from "react";
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
@@ -5,6 +6,25 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 
 export default function EnterManually() {
+
+  const [data, setData] = useState([
+    {
+      "INV NO.": "",
+      "INV Date": "",
+      "Item Name": "+ Add Item",
+      Description: "",
+      "HSN/SAC": "",
+      VOM: "",
+      QTV: "",
+      Rate: "",
+      Amount: "",
+      "Taxable Amount": "",
+      CGST: "",
+      SGST: "",
+      IGST: "",
+      Total: "",
+    },
+  ]);
   return (
     <>
       <div>
@@ -41,6 +61,38 @@ export default function EnterManually() {
           </Row>
 
 
+          <table className="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>INV NO.</th>
+                <th>INV Date</th>
+                <th>Item Name</th>
+                <th>Description</th>
+                <th>HSN/SAC</th>
+                <th>VOM</th>
+                <th>QTV</th>
+                <th>Rate</th>
+                <th>Amount</th>
+                <th>Taxable Amount</th>
+                <th>CGST</th>
+                <th>SGST</th>
+                <th>IGST</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((item, index) => (
+                <tr key={index}>
+                  {Object.values(item).map((value, i) => (
+                    <td key={i}>{value}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div className="mb-5 mt-5">
+            <button className="btn border-0 bg-warning">+ Add Invoice</button>
+          </div>
 
 
           <div className="d-flex">

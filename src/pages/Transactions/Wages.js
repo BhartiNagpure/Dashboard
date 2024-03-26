@@ -5,11 +5,26 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Table from "react-bootstrap/Table";
 import "../../assests/css/wages.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 
 export default function Wages() {
+  const currentDate = new Date().toISOString().split("T")[0];
+
+  const Attendance = [
+    { id: '', numOfStaff: '', dayWorked: '', dayAbsent: '' },
+    
+   
+  ];
+
+
+  
+const Salary = [
+  { id: '', numOfStaff: '', grossSalary: '', pf: '', esci: '', netSalary: '' },
+ 
+];
+
   return (
     <>
       <section className="section-wages mt-5 py-5 px-3">
@@ -77,7 +92,11 @@ export default function Wages() {
                   controlId="datemonth"
                   className="mb-3"
                 >
-                  <Form.Control type="date" placeholder="Select Month" />
+                  <Form.Control
+                    type="date"
+                    placeholder="Select Month"
+                    defaultValue={currentDate}
+                  />
                 </Form.Group>
               </Row>
             </Form>
@@ -88,7 +107,7 @@ export default function Wages() {
               <strong>Edit/Approve Attendance</strong>
             </h5>
             <div className="mt-4">
-              <Table striped bordered hover>
+              <table className="table table-striped table-bordered table-hover">
                 <thead>
                   <tr>
                     <th className="text-center">
@@ -106,22 +125,27 @@ export default function Wages() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td
-                      className="table-cell"
-                      style={{ paddingRight: "5px" }}
-                    ></td>
-                    <td className="table-cell-left"></td>
-                    <td className="table-cell-left"></td>
-                    <td>
-                      <div className="d-flex justify-content-around">
-                        <small>View Details</small>
-                        <small>Approve</small>
-                      </div>
-                    </td>
-                  </tr>
+                  {Attendance.map((item) => (
+                    <tr key={item.id}>
+                      <td className="table-cell text-center">
+                        {item.numOfStaff}
+                      </td>
+                      <td className="table-cell-left">{item.dayWorked}</td>
+                      <td className="table-cell-left">{item.dayAbsent}</td>
+                      <td>
+                        <div className="d-flex justify-content-around">
+                          <button className="border-0 bg-transparent ms-2">
+                            <small>View Details</small>
+                          </button>
+                          <button className="border-0 bg-transparent ms-2">
+                            <small>Approve</small>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
-              </Table>
+              </table>
             </div>
           </div>
 
@@ -130,48 +154,51 @@ export default function Wages() {
               <strong>Edit/Approve Salary</strong>
             </h5>
             <div className="mt-4">
-              <Table striped bordered hover>
-                <thead>
-                  <tr>
-                    <th className="text-center">
-                      <small>No of Staff</small>
-                    </th>
-                    <th className="text-center">
-                      <small>Gross Salary</small>
-                    </th>
-                    <th className="text-center">
-                      <small>PF</small>
-                    </th>
-                    <th className="text-center">
-                      <small>ESCI</small>
-                    </th>
-                    <th className="text-center">
-                      <small>Net Salary</small>
-                    </th>
-                    <th className="text-center">
-                      <small>Action</small>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td
-                      className="table-cell"
-                      style={{ paddingRight: "5px" }}
-                    ></td>
-                    <td className="table-cell-left"></td>
-                    <td className="table-cell-left"></td>
-                    <td className="table-cell-left"></td>
-                    <td className="table-cell-left"></td>
-                    <td>
-                      <div className="d-flex justify-content-around">
-                        <small>View Details</small>
-                        <small>Approve</small>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </Table>
+            <table className="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th className="text-center">
+            <small>No of Staff</small>
+          </th>
+          <th className="text-center">
+            <small>Gross Salary</small>
+          </th>
+          <th className="text-center">
+            <small>PF</small>
+          </th>
+          <th className="text-center">
+            <small>ESCI</small>
+          </th>
+          <th className="text-center">
+            <small>Net Salary</small>
+          </th>
+          <th className="text-center">
+            <small>Action</small>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {Salary.map(item => (
+          <tr key={item.id}>
+            <td className="table-cell text-center">{item.numOfStaff}</td>
+            <td className="table-cell-left">{item.grossSalary}</td>
+            <td className="table-cell-left">{item.pf}</td>
+            <td className="table-cell-left">{item.esci}</td>
+            <td className="table-cell-left">{item.netSalary}</td>
+            <td>
+              <div className="d-flex justify-content-around">
+                <button className="border-0 bg-transparent ms-2">
+                  <small>View Details</small>
+                </button>
+                <button className="border-0 bg-transparent ms-2">
+                  <small>Approve</small>
+                </button>
+              </div>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
             </div>
           </div>
 
@@ -189,10 +216,22 @@ export default function Wages() {
               <small>Download All</small>
             </Button>
             <Button variant="warning" className="mb-2 mx-2">
-              <small><FontAwesomeIcon icon={faEnvelope} className="text-success mx-2 mt-2"/>Send To All</small>
+              <small>
+                <FontAwesomeIcon
+                  icon={faEnvelope}
+                  className="text-success mx-2 mt-2"
+                />
+                Send To All
+              </small>
             </Button>
             <Button variant="warning" className="mb-2 mx-2">
-              <small><FontAwesomeIcon icon={faWhatsapp} className="text-success mx-2 mt-2"/>Send To All</small>
+              <small>
+                <FontAwesomeIcon
+                  icon={faWhatsapp}
+                  className="text-success mx-2 mt-2"
+                />
+                Send To All
+              </small>
             </Button>
           </div>
         </div>
