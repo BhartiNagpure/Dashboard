@@ -43,7 +43,7 @@ export default function InvoiceBulk() {
             >
               <Form.Label>Select Dates</Form.Label>
 
-              <div className="text-center">
+              <div className="text-center mb-5">
                 <DatePicker
                   value={dates}
                   onChange={setDates}
@@ -56,8 +56,11 @@ export default function InvoiceBulk() {
                 />
               </div>
               <ul>
+              
                 {dates.map((date, index) => (
+                 <>
                   <li key={index}>{date.format()}</li>
+                 </>
                 ))}
               </ul>
             </Form.Group>

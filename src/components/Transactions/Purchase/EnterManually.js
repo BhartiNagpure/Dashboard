@@ -70,7 +70,7 @@ export default function EnterManually() {
 
             <Form.Group
               as={Col}
-              lg={6}
+              lg={4}
               md={4}
               sm={12}
               controlId="formGridState"
@@ -82,7 +82,7 @@ export default function EnterManually() {
             </Form.Group>
           </Row>
 
-          <table className="table table-striped table-bordered">
+          <table className="table table-striped table-bordered table-responsive">
             <thead>
               <tr>
                 <th>INV NO.</th>

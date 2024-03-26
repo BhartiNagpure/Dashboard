@@ -1,9 +1,9 @@
-import { useState } from "react";
-import React from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
+import Table from "react-bootstrap/Table";
 
 export default function EnterManually() {
   const [data, setData] = useState([
@@ -47,15 +47,14 @@ export default function EnterManually() {
   
     setData([...data, newItem]);
   };
-
   return (
     <>
-      <div>
+      <div className="px-3">
         <Form>
           <Row className="mb-5">
             <Form.Group
               as={Col}
-              lg={4}
+              lg={6}
               md={4}
               sm={12}
               controlId="formGridState"
@@ -83,7 +82,7 @@ export default function EnterManually() {
             </Form.Group>
           </Row>
 
-          <table className="table table-striped table-bordered">
+          <table className="table table-striped table-bordered table-responsive">
             <thead>
               <tr>
                 <th>INV NO.</th>

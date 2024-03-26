@@ -269,4 +269,9 @@ Wages Page Alert CSS
     overflow: hidden; 
     text-overflow: ellipsis; 
   }
+
+  .btn{
+    font-size: 13px !important;
+  }
 }
+
