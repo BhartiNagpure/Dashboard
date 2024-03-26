@@ -8,22 +8,45 @@ import Table from "react-bootstrap/Table";
 export default function EnterManually() {
   const [data, setData] = useState([
     {
-      "INV NO.": "",
-      "INV Date": "",
-      "Item Name": "+ Add Item",
+      INVNO: "",
+      INVDate: "",
+      ItemName: "",
       Description: "",
-      "HSN/SAC": "",
+      HSNSAC: "",
       VOM: "",
       QTV: "",
       Rate: "",
       Amount: "",
-      "Taxable Amount": "",
+      TaxableAmount: "",
       CGST: "",
       SGST: "",
       IGST: "",
       Total: "",
     },
   ]);
+
+  const handleAddItem = (itemId, event) => {
+    event.preventDefault();
+
+    const newItem = {
+      INVNO: "", 
+      INVDate: "", 
+      ItemName: "", 
+      Description: "", 
+      HSNSAC: "", 
+      VOM: "", 
+      QTV: "", 
+      Rate: "", 
+      Amount: "", 
+      TaxableAmount: "", 
+      CGST: "", 
+      SGST: "", 
+      IGST: "", 
+      Total: "", 
+    };
+  
+    setData([...data, newItem]);
+  };
   return (
     <>
       <div className="px-3">
@@ -80,10 +103,32 @@ export default function EnterManually() {
             </thead>
             <tbody>
               {data.map((item, index) => (
-                <tr key={index}>
-                  {Object.values(item).map((value, i) => (
-                    <td key={i}>{value}</td>
-                  ))}
+                <tr key={item.id}>
+                  <td className="table-cell text-center">{item.INVNO}</td>
+                  <td className="table-cell-left">{item.INVDate}</td>
+                  {index === 0 ? (
+                    <td className="table-cell-left">
+                      <button
+                        className="border-0 bg-transparent ms-2"
+                        onClick={(event) => handleAddItem(item.id, event)}
+                      >
+                        <small>Add Item</small>
+                      </button>
+                    </td>
+                  ) : (
+                    <td className="table-cell-left"></td>
+                  )}
+                  <td className="table-cell-left">{item.Description}</td>
+                  <td className="table-cell-left">{item.HSNSAC}</td>
+                  <td className="table-cell-left">{item.VOM}</td>
+                  <td className="table-cell-left">{item.QTV}</td>
+                  <td className="table-cell-left">{item.Rate}</td>
+                  <td className="table-cell-left">{item.Amount}</td>
+                  <td className="table-cell-left">{item.TaxableAmount}</td>
+                  <td className="table-cell-left">{item.CGST}</td>
+                  <td className="table-cell-left">{item.SGST}</td>
+                  <td className="table-cell-left">{item.IGST}</td>
+                  <td className="table-cell-left">{item.Total}</td>
                 </tr>
               ))}
             </tbody>
