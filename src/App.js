@@ -12,7 +12,9 @@ import Item from "./pages/Masterspages/Item";
 import Employee from "./pages/Masterspages/Employee";
 import NotFoundPage from "./pages/NotFoundPage";
 import ContractTenderMaster from "./pages/Masterspages/ContractTenderMaster";
-import Register from "./pages/authentication/Register";
+import Sales from "./pages/Transactions/Sales";
+import Purchase from "./pages/Transactions/Purchase";
+import Wages from "./pages/Transactions/Wages";
 
 function App() {
   return (
@@ -34,7 +36,9 @@ function App() {
                 <Route path="/item" element={<Item />} />
                 <Route path="/employee" element={<Employee />} />
                 <Route path="/contract" element={<ContractTenderMaster />} />
-                <Route path='/login' element={<Register/>}/>
+                <Route path="/sales" element={<Sales />} />
+                <Route path="/purchase" element={<Purchase />} />
+                <Route path="/wages" element={<Wages />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </div>
@@ -45,3 +49,4 @@ function App() {
 }
 
 export default App;
+
