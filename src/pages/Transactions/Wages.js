@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
@@ -8,6 +8,17 @@ import "../../assests/css/wages.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import success from '../../assests/images/success-svgrepo-com.svg'
+
+function CustomAlert({ message }) {
+  return (
+    <div className="custom-alert">
+      <div className="message border rounded w-25 bg-secondary text-white"><img src={success} alt="" style={{width:'20px', margin:'5px'}}/>{message}</div>
+    </div>
+  );
+}
+
+
 
 export default function Wages() {
   const currentDate = new Date().toISOString().split("T")[0];
@@ -24,6 +35,23 @@ const Salary = [
   { id: '', numOfStaff: '', grossSalary: '', pf: '', esci: '', netSalary: '' },
  
 ];
+const [showAlert, setShowAlert] = useState(false);
+const [alertMessage, setAlertMessage] = useState('');
+
+const handleButtonClick = (action) => {
+  setAlertMessage(`Generated ${action} successfully!`);
+  setShowAlert(true);
+};
+
+useEffect(() => {
+  let timer;
+  if (showAlert) {
+    timer = setTimeout(() => {
+      setShowAlert(false);
+    }, 2000); 
+  }
+  return () => clearTimeout(timer);
+}, [showAlert]);
 
   return (
     <>
@@ -203,11 +231,11 @@ const Salary = [
           </div>
 
           <div className="mt-5 mb-3 d-flex justify-content-center">
-            <Button variant="warning" className="mb-2 mx-2">
+            <Button variant="warning" className="mb-2 mx-2" onClick={() => handleButtonClick("Salary Slip")}>
               <small>Generate Salary Slip</small>
             </Button>
 
-            <Button variant="warning" className="mb-2 mx-2">
+            <Button variant="warning" className="mb-2 mx-2" onClick={() => handleButtonClick("Bill")}>
               <small>Generate Bill</small>
             </Button>
           </div>
@@ -235,7 +263,9 @@ const Salary = [
             </Button>
           </div>
         </div>
+        {showAlert && <CustomAlert message={alertMessage} />}
       </section>
+      
     </>
   );
 }
