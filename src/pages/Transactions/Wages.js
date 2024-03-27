@@ -1,281 +1,90 @@
-import React, { useState, useEffect } from "react";
-import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
-import Table from "react-bootstrap/Table";
-import "../../assests/css/wages.css";
+import React, { useState } from "react";
+import AddWages from "../../components/Transactions/Wages/AddWages";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-import success from "../../assests/images/success-svgrepo-com.svg";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
-function CustomAlert({ message }) {
-  return (
-    <div className="custom-alert">
-      <div className="message border rounded  bg-secondary text-white alert-div">
-        <img src={success} alt="Successfully" />
-        <small>{message}</small>
-      </div>
-    </div>
-  );
-}
 
-export default function Wages() {
-  const currentDate = new Date().toISOString().split("T")[0];
 
-  const Attendance = [{ id: "", numOfStaff: "", dayWorked: "", dayAbsent: "" }];
+export default function Sales() {
+  const [openForm, setOpenForm] = useState(false);
+  const [openForm1, setOpenForm1] = useState(false);
+  const [buttonsClicked, setButtonsClicked] = useState(false);
 
-  const Salary = [
-    {
-      id: "",
-      numOfStaff: "",
-      grossSalary: "",
-      pf: "",
-      esci: "",
-      netSalary: "",
-    },
-  ];
-  const [showAlert, setShowAlert] = useState(false);
-  const [alertMessage, setAlertMessage] = useState("");
-
-  const handleButtonClick = (action) => {
-    setAlertMessage(`Generated ${action} successfully!`);
-    setShowAlert(true);
+  const openFormFun = () => {
+    setOpenForm(true);
+    setButtonsClicked(true);
   };
 
-  useEffect(() => {
-    let timer;
-    if (showAlert) {
-      timer = setTimeout(() => {
-        setShowAlert(false);
-      }, 3000);
-    }
-    return () => clearTimeout(timer);
-  }, [showAlert]);
+  const handleBackButton = () => {
+    setOpenForm(false);
+    setOpenForm1(false);
+    setButtonsClicked(false);
+  };
 
+  const data = [
+    {
+      id: 1,
+      employeeName: "John Smith",
+      employeeId: "123456",
+      employerName: "ABC Company",
+      wage: "$20",
+      hoursWorked: 40
+    },
+    {
+      id: 2,
+      employeeName: "Jane Doe",
+      employeeId: "789012",
+      employerName: "XYZ Inc.",
+      wage: "$18",
+      hoursWorked: 35
+    },
+    
+  ];
   return (
     <>
-      <section className="section-wages mt-5 py-5 px-3 mb-5">
-        <div className="container">
-          <div>
-            <Form>
-              <Row className="mb-3">
-                <Form.Group
-                  as={Col}
-                  lg={4}
-                  md={6}
-                  sm={12}
-                  controlId="site"
-                  className="mb-3"
-                >
-                  <Form.Select defaultValue="Choose...">
-                    <option>Select Site</option>
-                    <option>...</option>
-                  </Form.Select>
-                </Form.Group>
+      <div className="mt-5 py-5 px-3">
+        {!buttonsClicked && (
+          <>
+            <div className="d-flex justify-content-end mb-4">
+              <button
+                onClick={openFormFun}
+                className="btn bg-warning text-black"
+              >
+                <small>Wages</small>
+              </button>
+            </div>
 
-                <Form.Group
-                  as={Col}
-                  lg={4}
-                  md={6}
-                  sm={12}
-                  controlId="typecontract"
-                  className="mb-3"
-                >
-                  <Form.Select defaultValue="Choose...">
-                    <option>Select Contract</option>
-                    <option>...</option>
-                  </Form.Select>
-                </Form.Group>
-
-                <Form.Group
-                  as={Col}
-                  lg={4}
-                  md={6}
-                  sm={12}
-                  controlId="contractid"
-                  className="mb-3"
-                >
-                  <Form.Control type="text" placeholder="Contarct ID" />
-                </Form.Group>
-              </Row>
-
-              <Row className="mb-3">
-                <Form.Group
-                  as={Col}
-                  lg={4}
-                  md={6}
-                  sm={12}
-                  controlId="siteid"
-                  className="mb-3"
-                >
-                  <Form.Control type="text" placeholder="Site ID" />
-                </Form.Group>
-
-                <Form.Group
-                  as={Col}
-                  lg={4}
-                  md={6}
-                  sm={12}
-                  controlId="datemonth"
-                  className="mb-3"
-                >
-                  <Form.Control
-                    type="date"
-                    placeholder="Select Month"
-                    defaultValue={currentDate}
-                  />
-                </Form.Group>
-              </Row>
-            </Form>
-          </div>
-
-          <div className="mb-4">
-            <h5>
-              <strong>Edit/Approve Attendance</strong>
-            </h5>
-            <div className="mt-4">
-              <table className="table table-striped table-bordered table-hover">
+            <div className="table-responsive">
+              <table className="table table-striped table-bordered ">
                 <thead>
-                  <tr>
-                    <th className="text-center">
-                      <small>No of Staff</small>
-                    </th>
-                    <th className="text-center">
-                      <small>Day Worked</small>
-                    </th>
-                    <th className="text-center">
-                      <small>Day Absent</small>
-                    </th>
-                    <th className="text-center">
-                      <small>Action</small>
-                    </th>
+                  <tr className="text-center">
+                    <th>Employee Name</th>
+                    <th>Employee ID</th>
+                    <th>Employer Name</th>
+                    <th>Wage</th>
+                    <th>Hours Worked</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {Attendance.map((item) => (
-                    <tr key={item.id}>
-                      <td className="table-cell text-center">
-                        {item.numOfStaff}
-                      </td>
-                      <td className="table-cell-left">{item.dayWorked}</td>
-                      <td className="table-cell-left">{item.dayAbsent}</td>
-                      <td>
-                        <div className="d-flex justify-content-around">
-                          <button className="border-0 bg-transparent ms-2">
-                            <small>View Details</small>
-                          </button>
-                          <button className="border-0 bg-transparent ms-2">
-                            <small>Approve</small>
-                          </button>
-                        </div>
-                      </td>
+                  {data.map((item, index) => (
+                    <tr key={item.id} className="text-center">
+                      <td className="table-cell-left">{item.employeeName}</td>
+                      <td className="table-cell-left">{item.employeeId}</td>
+                      <td className="table-cell-left">{item.employerName}</td>
+                      <td className="table-cell-left">{item.wage}</td>
+                      <td className="table-cell-left">{item.hoursWorked}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-          </div>
-
-          <div>
-            <h5>
-              <strong>Edit/Approve Salary</strong>
-            </h5>
-            <div className="mt-4">
-              <table className="table table-striped table-bordered table-hover">
-                <thead>
-                  <tr>
-                    <th className="text-center">
-                      <small>No of Staff</small>
-                    </th>
-                    <th className="text-center">
-                      <small>Gross Salary</small>
-                    </th>
-                    <th className="text-center">
-                      <small>PF</small>
-                    </th>
-                    <th className="text-center">
-                      <small>ESCI</small>
-                    </th>
-                    <th className="text-center">
-                      <small>Net Salary</small>
-                    </th>
-                    <th className="text-center">
-                      <small>Action</small>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {Salary.map((item) => (
-                    <tr key={item.id}>
-                      <td className="table-cell text-center">
-                        {item.numOfStaff}
-                      </td>
-                      <td className="table-cell-left">{item.grossSalary}</td>
-                      <td className="table-cell-left">{item.pf}</td>
-                      <td className="table-cell-left">{item.esci}</td>
-                      <td className="table-cell-left">{item.netSalary}</td>
-                      <td>
-                        <div className="d-flex justify-content-around">
-                          <button className="border-0 bg-transparent ms-2">
-                            <small>View Details</small>
-                          </button>
-                          <button className="border-0 bg-transparent ms-2">
-                            <small>Approve</small>
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div className="mt-5 mb-3 d-flex justify-content-center">
-            <Button
-              variant="warning"
-              className="mb-2 mx-2"
-              onClick={() => handleButtonClick("Salary Slip")}
-            >
-              <small>Generate Salary Slip</small>
-            </Button>
-
-            <Button
-              variant="warning"
-              className="mb-2 mx-2"
-              onClick={() => handleButtonClick("Bill")}
-            >
-              <small>Generate Bill</small>
-            </Button>
-          </div>
-          <div className=" d-flex justify-content-center">
-            <Button variant="warning" className="mb-2 mx-2">
-              <small>Download All</small>
-            </Button>
-            <Button variant="warning" className="mb-2 mx-2">
-              <small>
-                <FontAwesomeIcon
-                  icon={faEnvelope}
-                  className="text-success mx-2 mt-2"
-                />
-                Send To All
-              </small>
-            </Button>
-            <Button variant="warning" className="mb-2 mx-2">
-              <small>
-                <FontAwesomeIcon
-                  icon={faWhatsapp}
-                  className="text-success mx-2 mt-2"
-                />
-                Send To All
-              </small>
-            </Button>
-          </div>
-          {showAlert && <CustomAlert message={alertMessage} />}
-        </div>
-      </section>
+          </>
+        )}
+        {(openForm || openForm1) && (
+          <FontAwesomeIcon icon={faArrowLeft} onClick={handleBackButton}/>
+        )}
+        {openForm && <AddWages />}
+      </div>
     </>
   );
 }

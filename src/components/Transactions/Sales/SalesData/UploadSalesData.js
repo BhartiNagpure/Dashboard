@@ -5,7 +5,7 @@ import Uploadinvoicesale from "../SalesData/UploadInvoice";
 
 
 export default function Sales() {
-  const [openForm, setOpenForm] = useState(null);
+  const [openForm, setOpenForm] = useState("uploadExcel");
 
   const openFormFun = (formName) => {
     setOpenForm(formName);
