@@ -101,6 +101,15 @@ sidebar css
 .navbar-toggler{
     padding: 22px!important;
 }
+
+.active {
+  background-color: #f0f0f0;
+  color: #007bff; 
+ border-top-right-radius: 25px;
+ border-bottom-right-radius: 25px;
+}
+
+
 @media (max-width:1020px) {
     .navbar-toggler {
         display: block;
