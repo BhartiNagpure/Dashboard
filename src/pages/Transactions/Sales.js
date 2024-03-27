@@ -68,7 +68,7 @@ export default function Sales() {
     <>
       <div className="mt-5 py-5 px-3">
         {(openForm || openForm1) && (
-           <FontAwesomeIcon icon={faArrowLeft} onClick={handleBackButton}/>
+           <FontAwesomeIcon icon={faArrowLeft} onClick={handleBackButton} className="mb-2"/>
         )}
        
         {!buttonsClicked && (

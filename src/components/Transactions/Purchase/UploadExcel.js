@@ -37,8 +37,8 @@ export default function UploadExcel() {
           <Row className="mb-4">
             <Form.Group
               as={Col}
-              lg={4}
-              md={4}
+              lg={6}
+              md={6}
               sm={12}
               controlId="formGridState"
             >

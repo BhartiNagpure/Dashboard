@@ -58,7 +58,7 @@ export default function Purchase() {
     <>
       <div className="mt-5 py-5 px-3">
         {activeForm && (
-          <FontAwesomeIcon icon={faArrowLeft} onClick={handleBackButtonClick}/>
+          <FontAwesomeIcon icon={faArrowLeft} onClick={handleBackButtonClick} className="mb-2"/>
         )}
         <div className="d-flex justify-content-end">
           <button

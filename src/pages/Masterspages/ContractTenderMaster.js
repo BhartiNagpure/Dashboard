@@ -6,8 +6,7 @@ import Row from "react-bootstrap/Row";
 import "../../assests/css/contractTmas.css";
 
 const ContractTenderMaster = () => {
-
-// Add Phase
+  // Add Phase
   const [phases, setPhases] = useState([
     { id: "", name: "", amount: "", startDate: "", endDate: "" },
   ]);
@@ -19,21 +18,36 @@ const ContractTenderMaster = () => {
     ]);
   };
 
+  const removePhase = (index) => {
+    const updatedPhases = [...phases];
+    updatedPhases.splice(index, 1);
+    setPhases(updatedPhases);
+  };
+
   const handlePhaseChange = (index, e) => {
     const { name, value } = e.target;
     const updatedPhases = [...phases];
     updatedPhases[index][name] = value;
     setPhases(updatedPhases);
   };
+  // Add Tender
 
-
-
-// Add Tender
-
-  const [tenderDocuments, setTenderDocuments] = useState([{ id: '', name: '', description: '' }]);
+  const [tenderDocuments, setTenderDocuments] = useState([
+    { id: "", name: "", description: "" },
+  ]);
 
   const addTenderDocument = () => {
-    setTenderDocuments([...tenderDocuments, { id: '', name: '', description: '' }]);
+    setTenderDocuments([
+      ...tenderDocuments,
+      { id: "", name: "", description: "" },
+    ]);
+  };
+
+  
+  const removeTenderDocument = (index) => {
+    const updatedTenderDocuments = [...tenderDocuments];
+    updatedTenderDocuments.splice(index, 1);
+    setTenderDocuments(updatedTenderDocuments);
   };
 
   const handleTenderDocumentChange = (index, e) => {
@@ -47,7 +61,6 @@ const ContractTenderMaster = () => {
     <>
       <section className="contract-tender mt-5 py-4 px-3">
         <div className="container mt-5">
-          
           <div className="ContactM-from1 mb-5">
             <div className="p-4">
               <Form>
@@ -306,64 +319,98 @@ const ContractTenderMaster = () => {
                         />
                       </div>
                     </div>
+                    <hr className="text-secondary"/>
+                    {phases.length > 1 && index >= phases.length - 1 && (
+                      <button
+                        className="btn border text-black mb-3"
+                        onClick={() => removePhase(index)}
+                      >
+                       <small> Remove Phase</small>
+                      </button>
+                    )}
                   </div>
                 ))}
               </div>
-              <button className="btn border text-black" onClick={addPhase}>
+              <button className="btn border text-black mt-3" onClick={addPhase}>
                 <small>+ Add Phase</small>
               </button>
             </div>
           </div>
-
           <div className="contarctM-tenderD mb-5">
-      <div className="p-4">
-        <h4><strong>Tender Document:</strong></h4>
-        {tenderDocuments.map((doc, index) => (
-          <div key={index} className="mt-4 mb-4">
-            <div className="row mb-3">
-              <div className="col-lg-4 col-md-6 col-sm-12 mb-3">
-                <input
-                  type="text"
-                  name="id"
-                  value={doc.id}
-                  onChange={(e) => handleTenderDocumentChange(index, e)}
-                  placeholder="Tender Doc ID"
-                  className="form-control border-0"
-                />
+            <div className="p-4">
+              <h4>
+                <strong>Tender Document:</strong>
+              </h4>
+              {tenderDocuments.map((doc, index) => (
+                <div key={index} className="mt-4 mb-4">
+                  <div className="row mb-3">
+                    <div className="col-lg-4 col-md-6 col-sm-12 mb-3">
+                      <input
+                        type="text"
+                        name="id"
+                        value={doc.id}
+                        onChange={(e) => handleTenderDocumentChange(index, e)}
+                        placeholder="Tender Doc ID"
+                        className="form-control border-0"
+                      />
+                    </div>
+                    <div className="col-lg-4 col-md-6 col-sm-12 mb-3">
+                      <input
+                        type="text"
+                        name="name"
+                        value={doc.name}
+                        onChange={(e) => handleTenderDocumentChange(index, e)}
+                        placeholder="Document Name"
+                        className="form-control border-0"
+                      />
+                    </div>
+                    <div className="col-lg-4 col-md-6 col-sm-12 mb-3">
+                      <input
+                        type="text"
+                        name="description"
+                        value={doc.description}
+                        onChange={(e) => handleTenderDocumentChange(index, e)}
+                        placeholder="Short Description"
+                        className="form-control border-0"
+                      />
+                    </div>
+                  </div>
+                  <div className="d-flex">
+                  <div className="upload-btn-wrapper">
+                    <button className="btn text-black border">
+                      <small> + Upload Document</small>
+                    </button>
+                    <input type="file" name="myfile" />
+                  </div>
+                  <div>
+                   {tenderDocuments.length > 1 && index >= tenderDocuments.length - 1 && (
+                      <button
+                        className="btn border text-black mx-2"
+                        onClick={() => removeTenderDocument(index)}
+                      >
+                       <small> Remove Tender</small>
+                      </button>
+                    )}
+                   </div>
+                  </div>
+                 <div>
+                 
+                 </div>
+                </div>
+              ))}
+              <div>
+                <button
+                  className="btn border text-black mb-3"
+                  onClick={addTenderDocument}
+                >
+                  <small>+ Tender Document</small>
+                </button>{" "}
               </div>
-              <div className="col-lg-4 col-md-6 col-sm-12 mb-3">
-                <input
-                  type="text"
-                  name="name"
-                  value={doc.name}
-                  onChange={(e) => handleTenderDocumentChange(index, e)}
-                  placeholder="Document Name"
-                  className="form-control border-0"
-                />
-              </div>
-              <div className="col-lg-4 col-md-6 col-sm-12 mb-3">
-                <input
-                  type="text"
-                  name="description"
-                  value={doc.description}
-                  onChange={(e) => handleTenderDocumentChange(index, e)}
-                  placeholder="Short Description"
-                  className="form-control border-0"
-                />
-              </div>
-            </div>
-            <div className="upload-btn-wrapper">
-              <button className="btn text-black border">
-                <small> + Upload Document</small>
+              <button className="btn Btn text-black">
+                <small>Submit</small>
               </button>
-              <input type="file" name="myfile" />
             </div>
           </div>
-        ))}
-        <div><button className="btn border text-black mb-3" onClick={addTenderDocument}><small>+ Tender Document</small></button>  </div>
-        <button className="btn Btn text-black"><small>Submit</small></button> 
-      </div>
-    </div>
         </div>
       </section>
     </>

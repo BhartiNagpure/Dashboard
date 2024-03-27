@@ -81,7 +81,7 @@ export default function Sales() {
           </>
         )}
         {(openForm || openForm1) && (
-          <FontAwesomeIcon icon={faArrowLeft} onClick={handleBackButton}/>
+          <FontAwesomeIcon icon={faArrowLeft} onClick={handleBackButton} />
         )}
         {openForm && <AddWages />}
       </div>

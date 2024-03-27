@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
+
 export default function UploadInvoice() {
   const [files, setFiles] = useState([]);
 
@@ -25,6 +26,7 @@ export default function UploadInvoice() {
     updatedFiles.splice(index, 1);
     setFiles(updatedFiles);
   };
+
   return (
     <>
       <div className="px-3 mx-3">
@@ -61,6 +63,7 @@ export default function UploadInvoice() {
                 <thead>
                   <tr className="text-center">
                     <th>Name</th>
+                    <th>Uploaded file</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -68,6 +71,17 @@ export default function UploadInvoice() {
                   {files.map((file, index) => (
                     <tr key={index} className="text-center">
                       <td>{file.name}</td>
+                      <td>
+                        {file.type.startsWith("image/") ? (
+                          <img
+                            src={URL.createObjectURL(file)}
+                            alt={file.name}
+                            style={{ maxHeight: "50px", maxWidth: "50px" }}
+                          />
+                        ) : (
+                          <span>Preview not available</span>
+                        )}
+                      </td>
                       <td>
                         <button
                           className="btn btn-sm btn-danger text-white mx-3"
