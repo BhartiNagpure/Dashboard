@@ -55,7 +55,7 @@ export default function EnterManually() {
             <Form.Group
               as={Col}
               lg={6}
-              md={4}
+              md={6}
               sm={12}
               controlId="formGridState"
               className="mb-3"
@@ -71,7 +71,7 @@ export default function EnterManually() {
             <Form.Group
               as={Col}
               lg={6}
-              md={4}
+              md={6}
               sm={12}
               controlId="formGridState"
               className="mb-3"
@@ -82,7 +82,8 @@ export default function EnterManually() {
             </Form.Group>
           </Row>
 
-          <table className="table table-striped table-bordered">
+          <div className="table-responsive">
+          <table className="table table-striped table-bordered ">
             <thead>
               <tr>
                 <th>INV NO.</th>
@@ -133,6 +134,7 @@ export default function EnterManually() {
               ))}
             </tbody>
           </table>
+          </div>
           <div className="mb-5 mt-5">
             <button className="btn border-0 bg-warning">+ Add Invoice</button>
           </div>

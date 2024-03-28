@@ -11,12 +11,11 @@ import DatePanel from "react-multi-date-picker/plugins/date_panel";
 const format = "MM/DD/YYYY";
 
 export default function InvoiceBulk() {
-  const [dates, setDates] = useState([ ]);
-
+  const [dates, setDates] = useState([]);
 
   return (
     <>
-      <div>
+      <div className="multi-date">
         <Form>
           <Row className="mb-3 d-flex flex-column">
             <Form.Group
@@ -40,10 +39,11 @@ export default function InvoiceBulk() {
               md={4}
               sm={12}
               controlId="formGridDates"
+              className="form-group-container"
             >
-              <Form.Label>Select Dates</Form.Label>
+              <Form.Label className="form-label">Select Dates</Form.Label>
 
-              <div className="text-center">
+              <div className="text-center mb-5 date-picker">
                 <DatePicker
                   value={dates}
                   onChange={setDates}
@@ -53,12 +53,17 @@ export default function InvoiceBulk() {
                   calendarPosition="bottom-center"
                   plugins={[<DatePanel />]}
                   placeholder="Select Dates"
+                  style={{width:'25rem', height:'2rem'}}
                 />
               </div>
-              <ul>
-                {dates.map((date, index) => (
-                  <li key={index}>{date.format()}</li>
-                ))}
+              <ul className="selected-dates-list">
+                {dates
+                  ? dates.map((date) => (
+                      <li key={date.format()} className="selected-date">
+                        {date.format()}
+                      </li>
+                    ))
+                  : null}
               </ul>
             </Form.Group>
           </Row>

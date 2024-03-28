@@ -1,12 +1,9 @@
-import React, {useState} from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
-
-
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function UploadInvoice() {
- 
   const [files, setFiles] = useState([]);
 
   const handleFileInputChange = (event) => {
@@ -29,9 +26,10 @@ export default function UploadInvoice() {
     updatedFiles.splice(index, 1);
     setFiles(updatedFiles);
   };
+
   return (
     <>
-     <div className="px-3 mx-3">
+      <div className="px-3 mx-3">
         <div className="file-upload d-flex flex-column justify-content-center text-center">
           <div
             className="drop-area"
@@ -61,19 +59,41 @@ export default function UploadInvoice() {
           {files.length > 0 && (
             <div className="file-list mt-3">
               <h4 className="mb-3">Selected Files:</h4>
-              <ul>
-                {files.map((file, index) => (
-                  <li key={index}>
-                    {file.name}{" "}
-                    <button
-                      className="btn btn-sm btn-danger text-white mx-3" 
-                      onClick={() => handleDeleteFile(index)}
-                    >
-                      <FontAwesomeIcon icon={faTrash} />
-                    </button>
-                  </li>
-                ))}
-              </ul>
+              <table className="table table-striped table-bordered responsive">
+                <thead>
+                  <tr className="text-center">
+                    <th>Name</th>
+                    <th>Uploaded file</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {files.map((file, index) => (
+                    <tr key={index} className="text-center">
+                      <td>{file.name}</td>
+                      <td>
+                        {file.type.startsWith("image/") ? (
+                          <img
+                            src={URL.createObjectURL(file)}
+                            alt={file.name}
+                            style={{ maxHeight: "50px", maxWidth: "50px" }}
+                          />
+                        ) : (
+                          <span>Preview not available</span>
+                        )}
+                      </td>
+                      <td>
+                        <button
+                          className="btn btn-sm btn-danger text-white mx-3"
+                          onClick={() => handleDeleteFile(index)}
+                        >
+                          <FontAwesomeIcon icon={faTrash} />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           )}
         </div>

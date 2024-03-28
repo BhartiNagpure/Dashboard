@@ -101,6 +101,15 @@ sidebar css
 .navbar-toggler{
     padding: 22px!important;
 }
+
+.active {
+  background-color: #f0f0f0;
+  color: #007bff; 
+ border-top-right-radius: 25px;
+ border-bottom-right-radius: 25px;
+}
+
+
 @media (max-width:1020px) {
     .navbar-toggler {
         display: block;
@@ -237,3 +246,75 @@ header css
   }
  
 }
+
+
+
+/*--------------------------------- 
+Wages Page Alert CSS 
+---------------------------------*/
+
+.alert-div img{
+  width: 20px;
+  margin: 5px;
+}
+
+.custom-alert div{
+  width: 20rem;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .custom-alert {
+    width: 100% !important; 
+    padding: 10px; 
+    
+  }
+
+  .message {
+    width: 100% !important; 
+    text-align: center;
+    display: flexbox;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+  }
+
+  .btn{
+    font-size: 13px !important;
+  }
+}
+
+
+
+/*---------------------------- 
+Invoice Page Date Bulk 
+------------------------------*/
+
+.form-group-container {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.date-picker {
+  width: 100% !important;
+}
+
+
+.selected-dates-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.selected-dates-list li {
+  margin-bottom: 5px;
+}
+
+.selected-date {
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
