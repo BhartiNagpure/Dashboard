@@ -1,94 +1,66 @@
-import React, {useState, useEffect} from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAdd } from '@fortawesome/free-solid-svg-icons';
+import { faAdd , faArrowLeft} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React, { useState } from 'react'
+import SitesForm from '../../components/masterComponents/SitesForm';
+import { Table, Form, Col, Row } from "react-bootstrap";
 
 export default function Sites() {
-  const fieldsData = [
-    {
-      name: 'Site Name',
-      placeholder: 'Site Name',
-    },
-    {
-      name: 'Client Name',
-      placeholder: 'Client Name',
-    },
-    {
-      name: 'S.O.Number',
-      placeholder: 'S.O.Number',
-    },
-    {
-      name: 'State',
-      placeholder: ' State',
-    },
-    {
-      name: 'Site Description',
-      placeholder: 'Site Description',
-    },
-    {
-      name: 'Contact Person',
-      placeholder: 'Contact Person',
-    },
-    {
-      name: ' Contact Number',
-      placeholder: 'Contact Number',
-    },
-  ]
-  const addFields = [
-    {
-      name: 'Work Order No',
-      placeholder: 'Work Order No',
-    },
-    {
-      name: 'Description Or work Done',
-      placeholder: 'Description Or work Done',
-    },
-    {
-      name: 'Amount',
-      placeholder: 'Amount',
-    },
-  ]
-  const [fields, setFields] = useState(fieldsData);
-  const [addField, setAddField] = useState([...addFields]);
+  const [openForm, setOpenForm] = useState(false);
 
- 
-  
-  const addWorkField = () => {
-    setAddField(prevState => [...prevState, ...addFields]);
-  };
+
+  const openFormFun = (() => {
+    setOpenForm(!openForm)
+  })
+
+  const tableData = [
+    { id: 1, first: 'Mark', last: 'Otto', handle: '@mdo' },
+    { id: 2, first: 'Jacob', last: 'Thornton', handle: '@fat' },
+    { id: 3, first: 'Larry', last: 'the Bird', handle: '@twitter' }
+  ];
 
   return (
-    <div className='mt-5 py-5 px-3'>
-      <form className='siteform p-3'>
-        <div className='d-flex flex-wrap'>
-          {fields.map((field, index) => (
-            <div className="col-lg-4 col-md-6 col-sm-12 input-field" key={index}>
-              <div className="px-2 py-3">
-                <input type="text" className="form-control" placeholder={field.placeholder} />
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className='mt-2'>
-          <h3 className='mx-2'>Add your work</h3>
-          <div className='d-flex flex-wrap'>
-          {addField.map((field, index) => (
-            <div className="col-lg-4 col-md-6 col-sm-12 input-field" key={index}>
-              <div className="px-2 py-3">
-                <input type="text" value="" className="form-control" placeholder={field.placeholder} />
-              </div>
-            </div>
-          ))}
-        </div>
-          <button className='btn Btn m-2 ' type='button' onClick={addWorkField}>
-            <FontAwesomeIcon icon={faAdd} className='mx-1' />
-            <span>
-              Create work order
-            </span>
+    <div className='d-flex flex-column flex-wrap mt-5 py-5 px-3 '>
+      {openForm && (
+        <div className='p-2 d-flex align-items-center'>
+          <button className='btn me-2' type='' onClick={openFormFun}>
+            <FontAwesomeIcon icon={faArrowLeft} className='me-2' />
           </button>
-          </div>
-      </form>
-    </div >
+        </div>
+      )}
+      {!openForm && (
+        <div className='p-2 d-flex justify-content-end'>
+          <button className='btn Btn' type='' onClick={openFormFun}>
+            <FontAwesomeIcon icon={faAdd} className='me-2' />
+            Add
+          </button>
+        </div>
+      )}
+      {!openForm && (
+        <div className='px-2 mt-2'>
+          <table className="table border table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tableData.map((item, index) => (
+                <tr key={index}>
+                  {Object.values(item).map((value, idx) => (
+                    <td key={idx}>{value}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {openForm && <SitesForm />}
+
+    </div>
   )
 }
-
-

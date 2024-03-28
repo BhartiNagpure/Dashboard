@@ -18,6 +18,18 @@ body{
 .Btn span{
   font-weight: 500;
 }
+.text-small{
+  font-size: 12px!important;
+}
+ul, .line-height{
+  line-height: 2;
+}
+.main-content::-webkit-scrollbar {
+  display: none;
+}
+.fs-sm{
+font-size: small;
+}
 /* -----------------------------------------------------------------
 sidebar css
 ----------------------------------------------------------------- */
@@ -32,10 +44,16 @@ sidebar css
     transition: all 0.3s;
     border-right:1px solid #cbd0dd;
     margin-top: 75px;
-   width: 250px;
-   max-width: 100%;
+   max-width: 250px;
+   width: 100%;
 }
-.menu:hover, .dropdown-item:hover{
+.dropdown-item{
+  display: flex!important;
+  align-items: center!important;
+  justify-content: space-between!important;
+  font-size: 14px!important;
+}
+.menu:hover, .dropdown-item:hover, .active{
     background-color:#eff2f6!important;
     border-radius: 10px;
     cursor: pointer;
@@ -195,7 +213,15 @@ header css
   height: 350px;
   max-height: 100%;
 }
-
+.profile{
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profilediv svg{
+font-size: 30px;
+}
 /* ------------------------------------------------------------
   masterpages css
   ------------------------------------------------------------ */
@@ -235,4 +261,83 @@ header css
     width: 100%!important;
 
   }
+}
+/* ------------------------------------------------------------
+  Wagespage css
+  ------------------------------------------------------------ */
+.table-cell {
+  padding-right: 5px;
+}
+
+.table-cell-left {
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+/*--------------------------------- 
+Wages Page Alert CSS 
+---------------------------------*/
+
+.alert-div img{
+  width: 20px;
+  margin: 5px;
+}
+
+.custom-alert div{
+  width: 20rem;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .custom-alert {
+    width: 100% !important; 
+    padding: 10px; 
+    
+  }
+
+  .message {
+    width: 100% !important; 
+    text-align: center;
+    display: flexbox;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+  }
+
+  .btn{
+    font-size: 13px !important;
+  }
+}
+
+
+
+/*---------------------------- 
+Invoice Page Date Bulk 
+------------------------------*/
+
+.form-group-container {
+  margin-bottom: 20px;
+}
+
+/* .form-label {
+  font-weight: bold;
+} */
+
+.date-picker {
+  width: 100% !important;
+}
+
+
+.selected-dates-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.selected-dates-list li {
+  margin-bottom: 5px;
+}
+
+.selected-date {
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 5px;
 }

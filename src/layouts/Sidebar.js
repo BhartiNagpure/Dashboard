@@ -23,7 +23,7 @@ export default function Sidebar() {
         )}
       </button>
 
-      <div className={`sidebar-container  p-3  ${isSidebarOpen ? 'isSidebar' : ''}`}>
+      <div className={`sidebar-container  p-4  ${isSidebarOpen ? 'isSidebar' : ''}`}>
         {/* <div className='text-center'>
           <img src="https://raksoftech.com/img/demos/it-services/logo.png" alt='' className='w-50 ' />
         </div> */}

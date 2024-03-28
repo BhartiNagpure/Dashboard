@@ -13,7 +13,7 @@ const NewItemManual = () => {
     <>
       <section className="Newitem-Master">
       {/* <FontAwesomeIcon icon={faArrowLeft}  onClick={() => navigate(-1)} /> */}
-        <div className="container mt-4">
+        <div className="container">
           <div>
             <Form>
               <Row className="mb-3">
@@ -70,7 +70,7 @@ const NewItemManual = () => {
                 </Form.Group>
               </Row>
 
-              <button className='btn Btn m-2 '>
+              <button className='btn Btn my-2 '>
                 <span>Submit</span>
               </button>
             </Form>

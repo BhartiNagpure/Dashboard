@@ -1,17 +1,33 @@
 import React, { useState } from "react";
 import "../../assests/css/contractTmas.css";
-import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
+import { Button, Form, Col, Modal, Row } from 'react-bootstrap';
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faCircleCheck, faSquareCheck } from "@fortawesome/free-regular-svg-icons";
+import error from '../../assests/images/error-svgrepo-com.svg';
+import success from '../../assests/images/success-svgrepo-com.svg'
 
 const VendorManual = () => {
   const navigate = useNavigate();
-
   const [showSecondForm, setShowSecondForm] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [showModal1, setShowModal1] = useState(false);
+  const handleVerifyClick = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+  const handleVerifyClick1 = () => {
+    setShowModal1(true);
+  };
+
+  const handleCloseModal1 = () => {
+    setShowModal1(false);
+  };
+
 
   const handleRadioChange = (e) => {
     setShowSecondForm(e.target.value === "yes");
@@ -21,7 +37,7 @@ const VendorManual = () => {
     <>
       <section className="VendorM-manu">
         {/* <FontAwesomeIcon icon={faArrowLeft} onClick={() => navigate(-1)} /> */}
-        <div className="container mt-4">
+        <div className="container">
           <div className="Vendor-manual-form">
             <div className="p-4 mb-3">
               <Form>
@@ -91,49 +107,15 @@ const VendorManual = () => {
                   <Form.Group as={Col} lg={4} md={6} sm={12} controlId="gstn1" className="mb-3">
                     <div className="input-group form-control p-0 ">
                       <Form.Control type="text" placeholder="1. GSTN" className=" border-0" />
-                      <button className="btn btn-outline-success " type="button" id="button-addon2">Verify</button>
+                      <button className="btn btn-outline-success text-small z-0 " type="button" id="button-addon2" onClick={handleVerifyClick}>Verify</button>
                     </div>
                   </Form.Group>
                   <Form.Group as={Col} lg={4} md={6} sm={12} controlId="gstn1" className="mb-3">
-                    <div className="input-group form-control p-0">
-                      <Form.Control type="text" placeholder="2. GSTN" className=" border-0" />
-                      <button className="btn btn-outline-success " type="button" id="button-addon2">Verify</button>
+                  <div className="input-group form-control p-0 ">
+                      <Form.Control type="text" placeholder="1. GSTN" className=" border-0" />
+                      <button className="btn btn-outline-success text-small z-0" type="button" id="button-addon2" onClick={handleVerifyClick1}>Verify</button>
                     </div>
                   </Form.Group>
-                  {/* 
-                  <Form.Group
-                    as={Col}
-                    lg={4}
-                    md={6}
-                    sm={12}
-                    controlId="gstn1"
-                    className="mb-3"
-                  >
-                    <Form.Control
-                      type="text"
-                      placeholder="1. GSTN"
-                      className="border-0"
-                    >
-                      <Button variant="outline-secondary" className="verify-btn">Verify</Button>
-                    </Form.Control>
-
-                  </Form.Group> */}
-
-                  {/* <Form.Group
-                    as={Col}
-                    lg={4}
-                    md={6}
-                    sm={12}
-                    controlId="gstn2"
-                    className="mb-3"
-                  >
-                    <Form.Control
-                      type="text"
-                      placeholder="2. GSTN"
-                      className="border-0"
-                    />
-                    <Button variant="outline-secondary" className="verify-btn">Verify</Button>
-                  </Form.Group> */}
                 </Row>
 
                 <Row className="mb-3">
@@ -323,6 +305,30 @@ const VendorManual = () => {
           </div>
         </div>
       </section>
+      <Modal show={showModal} onHide={handleCloseModal} className="d-flex align-items-center">
+        <Modal.Header closeButton>
+        </Modal.Header>
+        <Modal.Body className="d-flex flex-column align-items-center">
+          <img
+          className="col-2"
+            src={error}
+            alt="error"
+          />
+         <h4 className="p-2 text-danger">Invalid GSTN</h4>
+        </Modal.Body>
+      </Modal>
+      <Modal show={showModal1} onHide={handleCloseModal1} className="d-flex align-items-center">
+        <Modal.Header closeButton>
+        </Modal.Header>
+        <Modal.Body className="d-flex flex-column align-items-center">
+          <img
+          className="col-2"
+            src={success}
+            alt="Success"
+          />
+         <h4 className="p-2 text-success">Valid GSTN</h4>
+        </Modal.Body>
+      </Modal>
     </>
   );
 };
