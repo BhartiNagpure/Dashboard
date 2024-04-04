@@ -133,7 +133,7 @@ export default function AddWages() {
             <h5>
               <strong>Edit/Approve Attendance</strong>
             </h5>
-            <div className="mt-4">
+            <div className="mt-4 table-responsive">
               <table className="table table-striped table-bordered table-hover">
                 <thead>
                   <tr>
@@ -153,12 +153,10 @@ export default function AddWages() {
                 </thead>
                 <tbody>
                   {Attendance.map((item) => (
-                    <tr key={item.id}>
-                      <td className="table-cell text-center">
-                        {item.numOfStaff}
-                      </td>
-                      <td className="table-cell-left">{item.dayWorked}</td>
-                      <td className="table-cell-left">{item.dayAbsent}</td>
+                    <tr key={item.id} className="text-center">
+                      <td><small>{item.numOfStaff}</small></td> 
+                      <td><small>{item.dayWorked}</small></td>
+                      <td><small>{item.dayAbsent}</small></td>
                       <td>
                         <div className="d-flex justify-content-around">
                           <button className="border-0 bg-transparent ms-2">
@@ -180,7 +178,7 @@ export default function AddWages() {
             <h5>
               <strong>Edit/Approve Salary</strong>
             </h5>
-            <div className="mt-4">
+            <div className="mt-4 table-responsive">
               <table className="table table-striped table-bordered table-hover">
                 <thead>
                   <tr>
@@ -206,14 +204,12 @@ export default function AddWages() {
                 </thead>
                 <tbody>
                   {Salary.map((item) => (
-                    <tr key={item.id}>
-                      <td className="table-cell text-center">
-                        {item.numOfStaff}
-                      </td>
-                      <td className="table-cell-left">{item.grossSalary}</td>
-                      <td className="table-cell-left">{item.pf}</td>
-                      <td className="table-cell-left">{item.esci}</td>
-                      <td className="table-cell-left">{item.netSalary}</td>
+                    <tr key={item.id} className="text-center">
+                      <td><small>{item.numOfStaff}</small></td>                                          
+                      <td><small>{item.grossSalary}</small></td>
+                      <td><small>{item.pf}</small></td>
+                      <td><small>{item.esci}</small></td>
+                      <td><small>{item.netSalary}</small></td>
                       <td>
                         <div className="d-flex justify-content-around">
                           <button className="border-0 bg-transparent ms-2">
@@ -233,25 +229,25 @@ export default function AddWages() {
 
           <div className="mt-5 mb-3 d-flex justify-content-center">
             <Button
-              className="mb-2 mx-2 Btn"
+              className="mb-2 mx-2 btn Btn shadow border-0 text-black"
               onClick={() => handleButtonClick("Salary Slip")}
             >
               <small>Generate Salary Slip</small>
             </Button>
 
             <Button
-              className="mb-2 mx-2 Btn"
+              className="mb-2 mx-2 btn Btn shadow border-0 text-black"
               onClick={() => handleButtonClick("Bill")}
             >
               <small>Generate Bill</small>
             </Button>
           </div>
           <div className=" d-flex justify-content-center">
-            <Button  className="mb-2 mx-2 Btn">
+            <Button  className="mb-2 mx-2 btn Btn shadow border-0 text-black">
               <small>Download All</small>
             </Button>
-            <Button className="mb-2 mx-2 Btn">
-              <small>
+            <Button className="mb-2 mx-2 btn Btn shadow border-0 text-black">
+              <small className="d-flex flex-column">
                 <FontAwesomeIcon
                   icon={faEnvelope}
                   className="text-success mx-2 mt-2"
@@ -259,8 +255,8 @@ export default function AddWages() {
                 Send To All
               </small>
             </Button>
-            <Button  className="mb-2 mx-2 Btn">
-              <small>
+            <Button  className="mb-2 mx-2 btn Btn shadow border-0 text-black">
+              <small className="d-flex flex-column">
                 <FontAwesomeIcon
                   icon={faWhatsapp}
                   className="text-success mx-2 mt-2"

@@ -2,9 +2,8 @@ import Sidebar from "./layouts/Sidebar";
 import './assests/css/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import Header from "./layouts/Header";
-import Dashboard from "./pages/Dashboard";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import Route from './routes';
+import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sites from "./pages/Masterspages/Sites";
 import Vendor from "./pages/Masterspages/Vendor";
 import Client from "./pages/Masterspages/Client";
@@ -13,9 +12,12 @@ import Employee from "./pages/Masterspages/Employee";
 import NotFoundPage from "./pages/NotFoundPage";
 import ContractTenderMaster from "./pages/Masterspages/ContractTenderMaster";
 import Register from "./pages/authentication/Register";
+import Login from "./pages/authentication/Login";
 import Sales from "./pages/Transactions/Sales";
 import Purchase from "./pages/Transactions/Purchase";
 import Wages from "./pages/Transactions/Wages";
+import Header from "./layouts/Header";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -51,3 +53,4 @@ function App() {
 }
 
 export default App;
+

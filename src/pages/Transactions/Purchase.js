@@ -63,26 +63,26 @@ export default function Purchase() {
         <div className="d-flex justify-content-end">
           <button
             onClick={() => openForm("excel")}
-            className="btn Btn text-black mx-1"
+            className="btn Btn shadow text-black mx-1"
           >
             <small>+ Upload Excel</small>
           </button>
           <button
             onClick={() => openForm("invoice")}
-            className="btn Btn text-black mx-2"
+            className="btn Btn shadow text-black mx-2"
           >
             <small>+ Upload Invoice</small>
           </button>
           <button
             onClick={() => openForm("manual")}
-            className="btn Btn text-black"
+            className="btn Btn shadow text-black"
           >
             <small>+ Enter Manually</small>
           </button>
         </div>
 
         {activeForm === null && (
-          <div className="table-responsive mt-4">
+          <div className="table-responsive mt-4" style={{ overflowX: "auto" }}>
             <table className="table table-striped table-bordered">
               <thead>
                 <tr className="text-center">

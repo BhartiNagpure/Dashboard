@@ -29,7 +29,7 @@ export default function ContractTenderMaster() {
         )}
         {!openForm && (
           <div className='p-2 d-flex justify-content-end'>
-            <button className='btn Btn' type='' onClick={openFormFun}>
+            <button className='btn Btn shadow' type='' onClick={openFormFun}>
               <FontAwesomeIcon icon={faAdd} className='me-2' />
               Add
             </button>

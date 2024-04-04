@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../../assests/css/contractTmas.css";
 import { Button, Form, Col, Modal, Row } from 'react-bootstrap';
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -299,7 +298,7 @@ const VendorManual = () => {
             </div>
           </div>
           <div className="mb-3">
-            <button className="btn Btn m-2 ">
+            <button className="btn Btn shadow m-2 ">
               <span>Submit</span>
             </button>
           </div>

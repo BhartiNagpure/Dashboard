@@ -1,13 +1,16 @@
 import React , {useState} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDollar, faChartSimple, faFileContract, faCoins, faQuestion, faSailboat, faIdCard } from "@fortawesome/free-solid-svg-icons";
+import { faDollar, faChartSimple, faAlignLeft, faFileContract, faCoins, faQuestion, faSailboat, faIdCard } from "@fortawesome/free-solid-svg-icons";
 import { faFile, } from "@fortawesome/free-regular-svg-icons";
 import { Link } from "react-router-dom";
 
-const NavData = () => {
+const NavData = ({setIsSidebarOpen}) => {
   const [activeItem, setActiveItem] = useState({ main: null, sub: null }); 
+
+
   const handleItemClick = (mainIndex, subIndex) => {
     setActiveItem({ main: mainIndex, sub: subIndex });
+    // setIsSidebarOpen(false)
   };
   const menuItems = [
     { head: 'Dashboard' },
@@ -32,9 +35,9 @@ const NavData = () => {
         { label: "Sales", icon: faCoins, link: '/sales' },
         { label: "Purchase", icon: faCoins, link: '/purchase' },
         { label: "Wages", icon: faCoins, link: '/wages' },
-        { label: "EXP", icon: faCoins },
-        { label: "Assests", icon: faCoins },
-        { label: 'OTHNIC', icon: faCoins }
+        { label: "EXP", icon: faCoins , link:'/exp'},
+        { label: "Assests", icon: faCoins, link: '/assests' },
+        { label: 'OTHNIC', icon: faCoins , link:'/othnic'}
       ]
     },
     {
@@ -49,9 +52,9 @@ const NavData = () => {
         <div className='menu-item' key={index}>
           {/* Render head if present */}
           {menuItem.head && (
-            <div>
-              <h6 className='sidebar-heading d-flex justify-content-between align-items-center px-2 mb-1 text-muted' style={{ fontSize: '13.8px' }}>{menuItem.head}</h6>
-            </div>
+            <Link className="link" to='/'><div>
+            <h6 className='sidebar-heading d-flex justify-content-between align-items-center px-2 mb-1 text-muted' style={{ fontSize: '13.8px' }}>{menuItem.head}</h6>
+          </div></Link>
           )}
 
           {/* Render label and icon */}
@@ -64,14 +67,14 @@ const NavData = () => {
 
           {/* Render subItems if present */}
           {menuItem.subItems && (
-            <div className=' pt-2'>
+            <div className=' pt-2 .menu-item-respon'>
               <ul className='flex-column p-2 '>
                 {/* Map over subItems */}
                 {menuItem.subItems.map((subItem, subIndex) => (
-                  <Link to={subItem.link} className={`link d-flex ${activeItem.main === index && activeItem.sub === subIndex ? 'active' : ''}`} key={subIndex} onClick={() => handleItemClick(index, subIndex)}>
+                  <Link to={subItem.link} className={`link my-1 d-flex ${activeItem.main === index && activeItem.sub === subIndex ? 'active' : ''}`} key={subIndex} onClick={() => handleItemClick(index, subIndex)}>
                     <li className='dropdown-item px-2 py-1 text-start' key={subIndex} >
                       <FontAwesomeIcon icon={subItem.icon} className='sidebar-icon col-1' />
-                     <p className="col-10 m-0 "> {subItem.label}</p>
+                     <p className="col-10 m-0 "> <small>{subItem.label}</small></p>
                     </li>
                   </Link>
                 ))}

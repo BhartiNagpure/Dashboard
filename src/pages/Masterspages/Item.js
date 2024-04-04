@@ -27,14 +27,14 @@ export default function Item() {
             {!openForm && (
                 <div className='d-flex justify-content-end'>
                     <div className='p-2'>
-                        <label className='btn Btn' htmlFor='file-input'>
+                        <label className='btn Btn shadow' htmlFor='file-input'>
                             <FontAwesomeIcon icon={faAdd} className='me-2' />
                             Upload Excel
                         </label>
                         <input id='file-input' type='file' style={{ display: 'none' }} />
                     </div>
                     <div className='p-2'>
-                        <button className='btn Btn' type='button' onClick={openFormFun}>
+                        <button className='btn Btn shadow' type='button' onClick={openFormFun}>
                             <FontAwesomeIcon icon={faAdd} className='me-2' />
                             Enter Manually
                         </button>

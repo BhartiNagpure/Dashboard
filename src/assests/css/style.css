@@ -10,10 +10,11 @@ body{
   text-decoration: none;
 }
 .notfound img{
-  height: 90vh;
+  height: 85vh;
 }
 .Btn{
   background-color: #f9f777!important;
+   font-weight: 500!important;
 }
 .Btn span{
   font-weight: 500;
@@ -42,10 +43,11 @@ sidebar css
     scrollbar-color: transparent transparent;
     overflow-x: hidden;
     transition: all 0.3s;
-    border-right:1px solid #cbd0dd;
-    margin-top: 75px;
-   max-width: 250px;
-   width: 100%;
+    margin-top: 75px; 
+}
+.main-sidebar{
+  border-right:1px solid #cbd0dd;
+  height: 100vh;
 }
 .dropdown-item{
   display: flex!important;
@@ -57,10 +59,6 @@ sidebar css
     background-color:#eff2f6!important;
     border-radius: 10px;
     cursor: pointer;
-}
-.search{
-    max-width: 470px;
-    width: 100%;
 }
 .search input{
     border: none;
@@ -82,7 +80,14 @@ sidebar css
     width: 100%;
     border-bottom:1px solid #cbd0dd;
 }
+.search-mobile .modal-content{
+  background-color: transparent !important;
+  border: none !important;
+}
 
+.search-mobile .rounded-pill{
+  background-color: white !important;
+}
 .dropdownBtn {
     float: right;
     font-size: x-small;
@@ -91,11 +96,6 @@ sidebar css
 .active {
     color: white;
 }
-
-/* Define a variable for the color we want to use */
-
-
-/* Set the initial color of the menu item and sidebar icon */
 .menu-item{
     color: var(--menu-color);
 }
@@ -116,9 +116,9 @@ sidebar css
     color:var(--menu-color)!important;
 
 }
-.navbar-toggler{
-    padding: 22px!important;
-}
+.menu-item-respon{
+  margin-left: -15px;
+  }
 @media (max-width:1020px) {
     .navbar-toggler {
         display: block;
@@ -130,6 +130,7 @@ sidebar css
     .sidebar-container {
         left: -250px;
         background-color: #f9f777!important;
+       
     }
 
     .isSidebar {
@@ -137,6 +138,7 @@ sidebar css
         z-index: 2;
         top: -9px;
         height: 100%;
+        transition: 1s;
     }
 }
 
@@ -144,29 +146,20 @@ sidebar css
 header css
 ------------------------------------------------------------ */
 
+
+@media (max-width: 576px) {
+  .search{
+      display: none; /* Hide the search bar for small screens */
+  }
+}
+
 .barIcon {
     color: grey;
     font-size: 20px;
   }
   .header-profile-user{
     max-width: 50px!important;
-  }
-/*   
-  .searchbar {
-    background-color: #f1f2f3;
-    padding: 10px;
-    margin: 0px 20px;
-    border-radius: 5px;
-  } */
-  
-  /* .headerIcon {
-    color: grey;
-  } */
-  
-  /* .searchbar input {
-    background-color: #f1f2f3;
-  } */
-  
+  }  
   input:focus , .form-select:focus{
     outline: none;
   }
@@ -186,10 +179,6 @@ header css
   .bellCount {
     background-color: orangered;
   }
-  
-  /* .header-profile-user {
-    width: 30px;
-  } */
   .header-btn svg{
     color: var(--menu-color);
   }
@@ -222,10 +211,15 @@ header css
 .profilediv svg{
 font-size: 30px;
 }
+@media (max-width:768px) {
+  .profile{
+    height: 130px;
+  }
+}
 /* ------------------------------------------------------------
   masterpages css
   ------------------------------------------------------------ */
-  .siteform input, .masterdiv{
+  .siteform input, .siteform textarea, .masterdiv{
     background-color: #f7f7f7;
   }
   .masterdiv{
@@ -247,6 +241,33 @@ font-size: 30px;
   }
 .Newitem-Master, .VendorM-manu{
   width: 100%!important;
+}
+/* ----------------------------------------------
+contract master page css
+--------------------------------------------- */
+.ContactM-from1,.contarctM-addPhase,.contarctM-tenderD,.Vendor-manual-form{
+  background-color: #f7f7f7;
+}
+
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.btn {
+  color: rgb(49, 49, 49);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
 }
   @media (max-width:745px) {
     .master{
@@ -272,6 +293,19 @@ font-size: 30px;
 .table-cell-left {
   padding-left: 5px !important;
   padding-right: 5px !important;
+}
+@media (max-width: 665px) {
+  .table-responsive{
+    max-width: auto;
+    width:340px;
+  } 
+}
+
+@media (max-width: 370px) {
+  .table-responsive{
+    max-width: auto;
+    width:280px;
+  } 
 }
 /*--------------------------------- 
 Wages Page Alert CSS 
@@ -308,36 +342,39 @@ Wages Page Alert CSS
   }
 }
 
-
-
 /*---------------------------- 
 Invoice Page Date Bulk 
 ------------------------------*/
-
 .form-group-container {
   margin-bottom: 20px;
 }
-
-/* .form-label {
-  font-weight: bold;
-} */
-
 .date-picker {
   width: 100% !important;
 }
-
-
 .selected-dates-list {
   list-style-type: none;
   padding: 0;
 }
-
 .selected-dates-list li {
   margin-bottom: 5px;
 }
-
 .selected-date {
   background-color: #f0f0f0;
   padding: 5px 10px;
   border-radius: 5px;
+}
+/*---------------------------- 
+employee Page css
+------------------------------*/
+.table-container thead tr{
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+.table-container{
+  max-height: 300px;
+  overflow-y: scroll;
+}
+.table-container::-webkit-scrollbar{
+  display: none;
 }

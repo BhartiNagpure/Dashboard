@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import Generateinvoice from "../../components/Transactions/Sales/Invoice/GenerateInvoice";
+import GenerateInvoice from "../../components/Transactions/Sales/Invoice/GenerateInvoice";
 import UploadSalesData from "../../components/Transactions/Sales/SalesData/UploadSalesData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-
-
-
 
 export default function Sales() {
   const [openForm, setOpenForm] = useState(false);
@@ -53,7 +50,6 @@ export default function Sales() {
       priceperUnit: "$15",
       totalSales: "$450",
     },
-
     {
       id: 4,
       Date: "2024-03-02",
@@ -65,60 +61,62 @@ export default function Sales() {
   ];
 
   return (
-    <>
-      <div className="mt-5 py-5 px-3">
-        {(openForm || openForm1) && (
-           <FontAwesomeIcon icon={faArrowLeft} onClick={handleBackButton} className="mb-2"/>
+  <>
+    <div className="d-flex flex-column flex-wrap mt-5 py-5 px-3">
+      <div className="p-2 d">
+        {buttonsClicked && (
+          <div>
+            <FontAwesomeIcon icon={faArrowLeft} onClick={handleBackButton} />
+          </div>
         )}
-       
-        {!buttonsClicked && (
-          <>
-            <div className="d-flex justify-content-end mb-5">
-              <button
-                onClick={openFormFun}
-                className="btn Btn text-black mx-2"
-              >
-                <small>+ Upload Sales Data</small>
-              </button>
-              <button
-                onClick={openFormFun1}
-                className="btn Btn text-black"
-              >
-                <small>+ Generate Invoice</small>
-              </button>
-            </div>
-
-            <div className="table-responsive">
-              <table className="table table-striped table-bordered responsive">
-                <thead>
-                  <tr className="text-center">
-                    <th>Date</th>
-                    <th>Product Name</th>
-                    <th>Quantity Sold</th>
-                    <th>Price per Unit</th>
-                    <th>Total Sales</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.map((item, index) => (
-                    <tr key={item.id} className="text-center">
-                      <td className="table-cell-left ">{item.productName}</td>
-                      <td className="table-cell-left ">{item.Date}</td>
-                      <td className="table-cell-left ">{item.quantitySold}</td>
-                      <td className="table-cell-left ">{item.priceperUnit}</td>
-                      <td className="table-cell-left ">{item.totalSales}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </>
+        {!openForm && !openForm1 && (
+          <div className="d-flex justify-content-end">
+            <button
+              onClick={openFormFun}
+              className="btn Btn shadow text-black mx-2"
+            >
+              <small>+ Upload Sales Data</small>
+            </button>
+            <button
+              onClick={openFormFun1}
+              className="btn Btn shadow text-black"
+            >
+              <small>+ Generate Invoice</small>
+            </button>
+          </div>
         )}
-
-        {openForm && <UploadSalesData />}
-
-        {openForm1 && <Generateinvoice />}
       </div>
-    </>
+
+      {!openForm && !openForm1 && (
+        <div className="mt-3 table-responsive">
+          <table className="table border table-striped">
+            <thead>
+              <tr className="text-center">
+                <th><small>Date</small></th>
+                <th><small>Product Name</small></th>
+                <th><small>Quantity Sold</small></th>
+                <th><small>Price per Unit</small></th>
+                <th><small>Total Sales</small></th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((item, index) => (
+                <tr key={item.id} className="text-center">
+                  <td><small>{item.Date}</small></td>
+                  <td><small>{item.productName}</small></td>
+                  <td><small>{item.quantitySold}</small></td>
+                  <td><small>{item.priceperUnit}</small></td>
+                  <td><small>{item.totalSales}</small></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {openForm && <UploadSalesData />}
+      {openForm1 && <GenerateInvoice />}
+    </div>
+  </>
   );
 }

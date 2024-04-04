@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ac727c04.css",
+    "main.js": "/static/js/main.5fe92853.js",
+    "static/media/2201_w039_n003_83b_p1_83.jpg": "/static/media/2201_w039_n003_83b_p1_83.474bca5e8af5ff15e2ff.jpg",
+    "static/media/signupbgimg.png": "/static/media/signupbgimg.771ffa3ec01bb6412d7f.png",
+    "static/media/sigimg.png": "/static/media/sigimg.4b5d2c623a7cfbcf9cdf.png",
+    "static/media/Contractcube.png": "/static/media/Contractcube.d43dabd314719fd5da85.png",
+    "index.html": "/index.html",
+    "static/media/back-button-svgrepo-com.svg": "/static/media/back-button-svgrepo-com.1fedd33c74767f323c5543a13862a526.svg",
+    "static/media/error-svgrepo-com.svg": "/static/media/error-svgrepo-com.dc5f4d982075421954269cd8a1912959.svg",
+    "static/media/success-svgrepo-com.svg": "/static/media/success-svgrepo-com.2822d5c741dcf24e136036beb70c2cee.svg",
+    "main.ac727c04.css.map": "/static/css/main.ac727c04.css.map",
+    "main.5fe92853.js.map": "/static/js/main.5fe92853.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ac727c04.css",
+    "static/js/main.5fe92853.js"
+  ]
+}

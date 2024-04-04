@@ -48,7 +48,7 @@ export default function Sales() {
             <div className="d-flex justify-content-end mb-4">
               <button
                 onClick={openFormFun}
-                className="btn Btn text-black"
+                className="btn Btn shadow text-black"
               >
                 <small>Wages</small>
               </button>
@@ -58,21 +58,21 @@ export default function Sales() {
               <table className="table table-striped table-bordered ">
                 <thead>
                   <tr className="text-center">
-                    <th>Employee Name</th>
-                    <th>Employee ID</th>
-                    <th>Employer Name</th>
-                    <th>Wage</th>
-                    <th>Hours Worked</th>
+                    <th><small>Employee Name</small></th>
+                    <th><small>Employee ID</small></th>
+                    <th><small>Employer Name</small></th>
+                    <th><small>Wage</small></th>
+                    <th><small>Hours Worke</small></th>
                   </tr>
                 </thead>
                 <tbody>
                   {data.map((item, index) => (
                     <tr key={item.id} className="text-center">
-                      <td className="table-cell-left">{item.employeeName}</td>
-                      <td className="table-cell-left">{item.employeeId}</td>
-                      <td className="table-cell-left">{item.employerName}</td>
-                      <td className="table-cell-left">{item.wage}</td>
-                      <td className="table-cell-left">{item.hoursWorked}</td>
+                      <td><small>{item.employeeName}</small></td>
+                      <td><small>{item.employeeId}</small></td>
+                      <td><small>{item.employerName}</small></td>
+                      <td><small>{item.wage}</small></td>
+                      <td><small>{item.hoursWorked}</small></td>
                     </tr>
                   ))}
                 </tbody>

@@ -31,14 +31,14 @@ export default function Client() {
             </div> */}
             <div className='d-flex '>
                <div className='p-2'>
-               <label className='btn Btn' htmlFor='file-input' >
+               <label className='btn Btn shadow' htmlFor='file-input' >
                     <FontAwesomeIcon icon={faAdd} className='me-2' />
                     Upload Excel
                </label>
                <input id='file-input' type='file' style={{display:'none'}}/>
                </div>
                <div className='p-2'>
-               <button className='btn Btn' type='' onClick={openFormFun}>
+               <button className='btn Btn shadow' type='' onClick={openFormFun}>
                     <FontAwesomeIcon icon={faAdd} className='me-2' />
                     Enter Manually
                 </button>

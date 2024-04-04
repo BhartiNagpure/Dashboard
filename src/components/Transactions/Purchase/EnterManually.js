@@ -54,8 +54,8 @@ export default function EnterManually() {
           <Row className="mb-5">
             <Form.Group
               as={Col}
-              lg={6}
-              md={6}
+              lg={4}
+              md={4}
               sm={12}
               controlId="formGridState"
               className="mb-3"
@@ -70,8 +70,8 @@ export default function EnterManually() {
 
             <Form.Group
               as={Col}
-              lg={6}
-              md={6}
+              lg={4}
+              md={4}
               sm={12}
               controlId="formGridState"
               className="mb-3"
@@ -86,29 +86,29 @@ export default function EnterManually() {
           <table className="table table-striped table-bordered ">
             <thead>
               <tr>
-                <th>INV NO.</th>
-                <th>INV Date</th>
-                <th>Item Name</th>
-                <th>Description</th>
-                <th>HSN/SAC</th>
-                <th>VOM</th>
-                <th>QTV</th>
-                <th>Rate</th>
-                <th>Amount</th>
-                <th>Taxable Amount</th>
-                <th>CGST</th>
-                <th>SGST</th>
-                <th>IGST</th>
-                <th>Total</th>
+                <th><small>INV NO.</small></th>
+                <th><small>INV Date</small></th>
+                <th><small>Item Name</small></th>
+                <th><small>Description</small></th>
+                <th><small>HN/SAC</small></th>
+                <th><small>VOM</small></th>
+                <th><small>QTV</small></th>
+                <th><small>Rate</small></th>
+                <th><small>Amount</small></th>
+                <th><small>Taxable Amount</small></th>
+                <th><small>CGST</small></th>
+                <th><small>SGST</small></th>
+                <th><small>IGST</small></th>
+                <th><small>Total</small></th>
               </tr>
             </thead>
             <tbody>
               {data.map((item, index) => (
-                <tr key={item.id}>
-                  <td className="table-cell text-center">{item.INVNO}</td>
-                  <td className="table-cell-left">{item.INVDate}</td>
+                <tr key={item.id} className="text-center">
+                  <td><small>{item.INVNO}</small></td>
+                  <td><small>{item.INVDate}</small></td>
                   {index === 0 ? (
-                    <td className="table-cell-left">
+                    <td>
                       <button
                         className="border-0 bg-transparent ms-2"
                         onClick={(event) => handleAddItem(item.id, event)}
@@ -117,19 +117,19 @@ export default function EnterManually() {
                       </button>
                     </td>
                   ) : (
-                    <td className="table-cell-left"></td>
+                    <td></td>
                   )}
-                  <td className="table-cell-left">{item.Description}</td>
-                  <td className="table-cell-left">{item.HSNSAC}</td>
-                  <td className="table-cell-left">{item.VOM}</td>
-                  <td className="table-cell-left">{item.QTV}</td>
-                  <td className="table-cell-left">{item.Rate}</td>
-                  <td className="table-cell-left">{item.Amount}</td>
-                  <td className="table-cell-left">{item.TaxableAmount}</td>
-                  <td className="table-cell-left">{item.CGST}</td>
-                  <td className="table-cell-left">{item.SGST}</td>
-                  <td className="table-cell-left">{item.IGST}</td>
-                  <td className="table-cell-left">{item.Total}</td>
+                  <td>{item.Description}</td>
+                  <td>{item.HSNSAC}</td>
+                  <td>{item.VOM}</td>
+                  <td>{item.QTV}</td>
+                  <td>{item.Rate}</td>
+                  <td>{item.Amount}</td>
+                  <td>{item.TaxableAmount}</td>
+                  <td>{item.CGST}</td>
+                  <td>{item.SGST}</td>
+                  <td>{item.IGST}</td>
+                  <td>{item.Total}</td>
                 </tr>
               ))}
             </tbody>

@@ -35,42 +35,42 @@ const NewItemManual = () => {
               </Row>
 
               <Row className="mb-3">
-                <Form.Group as={Col} lg={4} md={6} sm={12} controlId="opquantity" className="mb-3">
+                <Form.Group as={Col} lg={4} md={6} sm={12} controlId="opquantity">
                   <Form.Label>OP Balance</Form.Label>
                   <Form.Control type="Number" placeholder="Quantity" />
                 </Form.Group>
 
-                <Form.Group as={Col} lg={4} md={6} sm={12} controlId="oprate" className="mb-3">
+                <Form.Group as={Col} lg={4} md={6} sm={12} controlId="oprate" className="mt-2">
                   <Form.Label></Form.Label>
                   <Form.Control type="number" placeholder="Rate" />
                 </Form.Group>
 
 
-                <Form.Group as={Col} lg={4} md={6} sm={12} controlId="opamount" className="mb-3">
+                <Form.Group as={Col} lg={4} md={6} sm={12} controlId="opamount" className="mt-2">
                   <Form.Label></Form.Label>
                   <Form.Control type="number" placeholder="Amount" />
                 </Form.Group>
               </Row>
 
               <Row className="mb-3">
-                <Form.Group as={Col} lg={4} md={6} sm={12} controlId="currentquantity" className="mb-3">
+                <Form.Group as={Col} lg={4} md={6} sm={12} controlId="currentquantity">
                   <Form.Label>Current Balance</Form.Label>
                   <Form.Control type="Number" placeholder="Quantity" />
                 </Form.Group>
 
-                <Form.Group as={Col} lg={4} md={6} sm={12} controlId="curentrate" className="mb-3">
+                <Form.Group as={Col} lg={4} md={6} sm={12} controlId="curentrate" className="mt-2">
                   <Form.Label></Form.Label>
                   <Form.Control type="number" placeholder="Rate" />
                 </Form.Group>
 
 
-                <Form.Group as={Col} lg={4} md={6} sm={12} controlId="currentamount" className="mb-3">
+                <Form.Group as={Col} lg={4} md={6} sm={12} controlId="currentamount" className="mt-2">
                   <Form.Label></Form.Label>
                   <Form.Control type="number" placeholder="Amount" />
                 </Form.Group>
               </Row>
 
-              <button className='btn Btn my-2 '>
+              <button className='btn Btn shadow my-2 '>
                 <span>Submit</span>
               </button>
             </Form>

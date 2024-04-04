@@ -19,10 +19,10 @@ export default function Dashboard() {
     }
   ]
   return (
-    <div className='dash'>
+    <div className='dash '>
       <div className=' p-3'>
-        <div className='d-flex justify-content-between mt-5 p-4'>
-          <button className='btn Btn  '>
+        <div className='d-flex justify-content-between mt-5 py-4'>
+          <button className='btn Btn shadow  '>
            <Link to='/sites' className='link'> <span> Sites</span></Link>
             <FontAwesomeIcon icon={faPlayCircle} className='mx-1' />
           </button>
@@ -31,16 +31,15 @@ export default function Dashboard() {
               <FontAwesomeIcon icon={faSun} className='mx-1' />
               <span >Documents setting</span>
             </button>
-            <button className='btn  Btn'>
+            <button className='btn  Btn shadow'>
               <FontAwesomeIcon icon={faAdd} className='mx-1' />
               <span>
                 Create sites
               </span>
-
             </button>
           </div>
         </div>
-        <div className='d-flex p-5 flex-wrap'>
+        <div className='d-flex flex-wrap align-items-center justify-content-center'>
           <div className='col-lg-6 col-md-12 col-sm-12 bg-img'>
             <img src={img} alt='' className='img-fluid' />
           </div>
@@ -59,7 +58,7 @@ export default function Dashboard() {
                 </div>
               </div>
             ))}
-            <button className='btn Btn m-3'>
+            <button className='btn shadow Btn m-3'>
               <FontAwesomeIcon icon={faAdd} className='mx-1' />
               <span>
                 Add your sites
